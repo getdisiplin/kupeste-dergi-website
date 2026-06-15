@@ -487,7 +487,7 @@ var issueThemes = [
 function pad(n){return n<10?'0'+n:''+n}
 function getRealIssueNum(i){return TOTAL-i}
 function getCoverPath(i){return 'K\u00fcpe\u015fte/kapak/sayi'+pad(getRealIssueNum(i))+'.jpg'}
-function getPdfPath(i){return 'K\u00fcpe\u015fte/sayilar/Kupeste_dergi_Sayi_'+pad(getRealIssueNum(i))+'.pdf'}
+function getPdfPath(i){return 'https://github.com/getdisiplin/kupeste-dergi-website/releases/download/pdfs/Kupeste_dergi_Sayi_'+pad(getRealIssueNum(i))+'.pdf'}
 function getDescription(i){return issueThemes[i]}
 function getTheme(i){var t=issueThemes[i],c=t.indexOf(':');return c>0?t.substring(c+1).trim():''}
 function getTitle(i){var t=issueThemes[i],c=t.indexOf(':');return c>0?t.substring(0,c).trim():'Say\u0131 '+getRealIssueNum(i)}
@@ -925,7 +925,7 @@ return;
 function openModal(modal){modal.classList.add('open');}
 function closeModal(modal){modal.classList.remove('open');}
 function openPdfReader(pdfPath){
-var viewerUrl='pdfjs/web/viewer.html?file='+encodeURIComponent('../../'+pdfPath);
+var viewerUrl='pdfjs/web/viewer.html?file='+encodeURIComponent(pdfPath);
 pdfFrame.src=viewerUrl;
 openModal(pdfModal);
 }
