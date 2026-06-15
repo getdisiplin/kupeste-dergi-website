@@ -580,6 +580,8 @@ animating=true;
 for(var i=0;i<track.children.length;i++){
 gsap.killTweensOf(track.children[i]);
 track.children[i].style.transform='';
+track.children[i].style.opacity='';
+track.children[i].style.filter='';
 }
 gsap.killTweensOf(track);
 track.style.transform='';
@@ -636,6 +638,8 @@ function fastGo(target){
 for(var i=0;i<track.children.length;i++){
 gsap.killTweensOf(track.children[i]);
 track.children[i].style.transform='';
+track.children[i].style.opacity='';
+track.children[i].style.filter='';
 }
 gsap.killTweensOf(track);
 track.style.transform='';
@@ -684,7 +688,7 @@ var setTrackX=gsap.quickSetter(track,'x','px');
 track.addEventListener('pointerdown',function(e){
 if(dragPointerId!==null)return;
 if(animating){
-for(var i=0;i<track.children.length;i++){gsap.killTweensOf(track.children[i]);track.children[i].style.transform='';}
+for(var i=0;i<track.children.length;i++){gsap.killTweensOf(track.children[i]);track.children[i].style.transform='';track.children[i].style.opacity='';track.children[i].style.filter='';}
 gsap.killTweensOf(track);
 gsap.killTweensOf([issueNumber,issueDesc]);
 animating=false;
@@ -1012,7 +1016,7 @@ handleHash();
 gsap.fromTo('#logo-wrap,#insta',{y:-20,opacity:0},{y:0,opacity:1,duration:0.6,stagger:0.1,ease:'power2.out',delay:0.1});
 gsap.fromTo('#header-nav',{opacity:0},{opacity:1,duration:0.4,delay:0.15});
 requestAnimationFrame(function(){centerTrack(true);});
-gsap.fromTo('.card',{opacity:0},{opacity:function(i){return i===current?1:0.6},duration:0.55,stagger:0.05,ease:'power2.out',delay:0.3,clearProps:'opacity,filter'});
+gsap.fromTo('.card',{opacity:0},{opacity:1,duration:0.55,stagger:0.05,ease:'power2.out',delay:0.3,clearProps:'opacity,filter'});
 gsap.fromTo('#issue-info,#bottom-bar',{y:15,opacity:0},{y:0,opacity:1,duration:0.5,stagger:0.08,ease:'power2.out',delay:0.6});
 
 // Show share buttons after entrance
