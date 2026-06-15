@@ -203,8 +203,8 @@ body{background:var(--bg);color:var(--text);overflow:hidden;font-family:'Inter',
 #card-stage{flex:1;height:auto;min-height:45vh;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:2vh}
 #track{padding-left:clamp(5rem,20vw,8rem)}
 .card{border-radius:6px;margin-right:0}
-.card:not(.active){opacity:0.6;filter:brightness(0.92) saturate(0.8);transition:opacity 1.8s cubic-bezier(0.22,1,0.36,1),filter 1.8s cubic-bezier(0.22,1,0.36,1),transform 1.8s cubic-bezier(0.22,1,0.36,1)}
-.card:not(.active):hover{opacity:0.8;filter:brightness(1) saturate(0.9);transform:scale(1.04)}
+.card:not(.active){opacity:0.85;filter:brightness(0.96) saturate(0.92);transition:opacity 0.4s ease,filter 0.4s ease,transform 0.4s ease}
+.card:not(.active):hover{opacity:0.95;filter:brightness(1) saturate(0.95);transform:scale(1.04)}
 .card:not(.active):hover .card-inner,.card.active:hover .card-inner{box-shadow:0 0 24px rgba(107,74,46,0.12),0 4px 12px rgba(0,0,0,0.1)}
 .card.active .card-inner{box-shadow:0 4px 20px rgba(107,74,46,0.1),0 0 0 1px rgba(107,74,46,0.12),0 2px 8px rgba(0,0,0,0.1)}
 #issue-info{padding:2.2rem 1rem clamp(1.5rem,3vh,2rem)}
@@ -219,12 +219,15 @@ body{background:var(--bg);color:var(--text);overflow:hidden;font-family:'Inter',
 .hdr-btn{font-size:0.5rem;padding:0.2rem 0.35rem}
 #btn-grid-toggle{font-size:clamp(0.45rem,0.55vw,0.6rem);padding:0.2rem 0.45rem}
 #grid-inner{grid-template-columns:repeat(4,1fr);gap:clamp(0.4rem,0.8vw,0.8rem)}
+#insta{font-size:0.55rem;padding:0.2rem 0.5rem}
+#insta svg{width:12px;height:12px}
+.card{will-change:transform}
 }
 @media(max-width:480px){
 #card-stage{min-height:40vh;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:1vh}
 #track{padding-left:clamp(4rem,22vw,6rem)}
-.card:not(.active){opacity:0.6;filter:brightness(0.92) saturate(0.8);transition:opacity 1.8s cubic-bezier(0.22,1,0.36,1),filter 1.8s cubic-bezier(0.22,1,0.36,1),transform 1.8s cubic-bezier(0.22,1,0.36,1)}
-.card:not(.active):hover{opacity:0.8;filter:brightness(1) saturate(0.9);transform:scale(1.04)}
+.card:not(.active){opacity:0.85;filter:brightness(0.96) saturate(0.92);transition:opacity 0.4s ease,filter 0.4s ease,transform 0.4s ease}
+.card:not(.active):hover{opacity:0.95;filter:brightness(1) saturate(0.95);transform:scale(1.04)}
 .card:not(.active):hover .card-inner,.card.active:hover .card-inner{box-shadow:0 0 20px rgba(107,74,46,0.1),0 4px 10px rgba(0,0,0,0.1)}
 .card.active .card-inner{box-shadow:0 4px 16px rgba(107,74,46,0.08),0 0 0 1px rgba(107,74,46,0.1),0 2px 6px rgba(0,0,0,0.08)}
 #issue-info{padding:1.8rem 0.75rem clamp(1.2rem,3vh,2rem)}
@@ -240,6 +243,9 @@ body{background:var(--bg);color:var(--text);overflow:hidden;font-family:'Inter',
 .hdr-btn{font-size:0.45rem;padding:0.15rem 0.25rem}
 #btn-grid-toggle{font-size:clamp(0.4rem,0.5vw,0.5rem);padding:0.15rem 0.35rem}
 #bottom-bar.hide{display:none}
+#insta{font-size:0.5rem;padding:0.15rem 0.4rem;border-width:1px}
+#insta svg{width:10px;height:10px}
+.card{will-change:transform}
 }
 
 @media(prefers-reduced-motion:reduce){
