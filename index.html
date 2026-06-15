@@ -493,7 +493,7 @@ var issueThemes = [
 function pad(n){return n<10?'0'+n:''+n}
 function getRealIssueNum(i){return TOTAL-i}
 function getCoverPath(i){return 'K\u00fcpe\u015fte/kapak/sayi'+pad(getRealIssueNum(i))+'.jpg'}
-function getPdfPath(i){return 'https://github.com/getdisiplin/kupeste-dergi-website/releases/download/pdfs/Kupeste_dergi_Sayi_'+pad(getRealIssueNum(i))+'.pdf'}
+function getPdfPath(i){return 'https://cdn.jsdelivr.net/gh/getdisiplin/kupeste-dergi-website@main/K%C3%BCpe%C5%9Fte/sayilar/Kupeste_dergi_Sayi_'+pad(getRealIssueNum(i))+'.pdf'}
 function getDescription(i){return issueThemes[i]}
 function getTheme(i){var t=issueThemes[i],c=t.indexOf(':');return c>0?t.substring(c+1).trim():''}
 function getTitle(i){var t=issueThemes[i],c=t.indexOf(':');return c>0?t.substring(0,c).trim():'Say\u0131 '+getRealIssueNum(i)}
