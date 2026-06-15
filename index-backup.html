@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Küpeşte — Edebiyat ve Sanat Dergisi</title>
+<meta name="description" content="54 sayılık edebiyat ve sanat dergisi. Şiir, öykü, deneme ve eleştiri.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{gold:{50:'#faf6f0',100:'#f2e8d8',200:'#e4d0b0',300:'#d4b388',400:'#c9a96e',500:'#b8944f',600:'#a07d40',700:'#8b5e3c',800:'#6e4a31',900:'#5a3d2a',950:'#322217'}}}}}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--accent:#c9a96e;--bg:#0d0d0d;--text:#e8e4dc;--text-dim:#6a6a6a;--card-w:clamp(150px,17vw,260px)}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);overflow:hidden;font-family:'Inter',system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* Kağıt texture — full screen */
+#kagit-bg{position:fixed;inset:0;z-index:-5;background-image:url('Kağıt.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.3;pointer-events:none;transform:scaleX(-1)}
+
+/* Dark overlay — moody underground */
+#dark-overlay{position:fixed;inset:0;z-index:-4;background:linear-gradient(135deg,rgba(0,0,0,0.85) 0%,rgba(10,10,10,0.7) 40%,rgba(20,15,10,0.6) 100%);pointer-events:none}
+
+/* Cloud layer — darker, subtle */
+#clouds-bg{position:fixed;top:0;left:-15%;width:130%;height:100%;z-index:-3;pointer-events:none;background-image:url('Gemini_Generated_Image_xauwfaxauwfaxauw.png');background-size:cover;background-position:70% 25%;will-change:transform;opacity:0.08;mix-blend-mode:screen;filter:saturate(0.4) brightness(0.5)}
+
+/* Theme color layer */
+.bg-layer{position:fixed;inset:0;z-index:-2;pointer-events:none;transition:background 0.7s ease;opacity:0.12}
+
+/* Top blur layer — header area fade */
+#top-blur{position:fixed;top:0;left:0;right:0;height:clamp(4rem,8vh,6rem);z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.15) 60%,transparent 100%);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);pointer-events:none}
+
+/* Grain */
+.grain-overlay{position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:0.025}
+
+/* App */
+#app{position:fixed;inset:0;z-index:2;display:flex;flex-direction:column;pointer-events:none}
+#app>*{pointer-events:auto}
+
+/* Header */
+#header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;align-items:center;padding:clamp(0.8rem,1.8vh,1.25rem) clamp(1.25rem,2.5vw,2.5rem);pointer-events:none}
+#header>*{pointer-events:auto}
+#logo-wrap{display:flex;flex-direction:column;align-items:center;text-decoration:none;cursor:default}
+#logo-text{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(1.2rem,1.8vw,1.8rem);letter-spacing:-0.02em;color:var(--text);line-height:1}
+#s-char{display:inline-block;transform-origin:center center;font-style:italic;font-weight:500}
+#logo-sub{font-family:'JetBrains Mono',monospace;font-size:clamp(0.4rem,0.55vw,0.55rem);letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,169,110,0.5);margin-top:3px}
+#insta{position:fixed;top:clamp(0.8rem,1.8vh,1.25rem);right:clamp(1.25rem,2.5vw,2.5rem);z-index:101;display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:rgba(232,228,220,0.2);font-family:'JetBrains Mono',monospace;font-size:clamp(0.55rem,0.7vw,0.7rem);letter-spacing:0.2em;transition:color 0.3s ease}
+#insta:hover{color:var(--accent)}
+#insta:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+#insta svg{width:16px;height:16px;transition:transform 0.3s ease}
+#insta:hover svg{transform:translateY(-2px)}
+
+/* Main */
+#main{flex:1;display:flex;position:relative;padding-top:4.5rem;padding-bottom:0}
+
+/* Card stage */
+#card-stage{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;z-index:3;padding-top:1vh}
+
+/* Info panel */
+#info-panel{position:absolute;left:clamp(1.5rem,3vw,3rem);top:50%;z-index:15;display:flex;flex-direction:column;align-items:flex-start;gap:clamp(0.6rem,1vh,1rem);pointer-events:none;transform:translateY(-50%);max-width:clamp(10rem,14vw,16rem)}
+#info-panel>*{pointer-events:auto}
+#info-title{font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:clamp(0.9rem,1.2vw,1.1rem);letter-spacing:-0.01em;color:var(--text)}
+#info-desc{font-family:'Inter',system-ui,sans-serif;font-size:clamp(0.55rem,0.7vw,0.7rem);font-weight:300;line-height:1.55;color:rgba(232,228,220,0.5);max-width:100%;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+#info-pdf-btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.4rem 1rem;font-family:'JetBrains Mono',monospace;font-size:clamp(0.4rem,0.5vw,0.5rem);font-weight:500;letter-spacing:0.18em;color:var(--accent);border:1px solid rgba(201,169,110,0.25);background:rgba(0,0,0,0.4);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);cursor:pointer;overflow:hidden;text-decoration:none;transition:color 0.3s ease,background 0.3s ease,border-color 0.3s ease;border-radius:4px}
+#info-pdf-btn:hover{color:#0d0d0d;background:var(--accent);border-color:var(--accent)}
+#info-pdf-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+#info-pdf-btn:active{transform:scale(0.97)}
+#info-pdf-btn svg{width:9px;height:9px;transition:transform 0.3s ease}
+#info-pdf-btn:hover svg{transform:translateX(3px)}
+
+/* Track */
+#track{display:flex;align-items:center;gap:7px;will-change:transform;position:relative;padding-left:clamp(10rem,14vw,16rem);touch-action:none;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
+.card{flex-shrink:0;width:var(--card-w);aspect-ratio:595/842;position:relative;cursor:pointer;will-change:transform,opacity,filter;-webkit-tap-highlight-color:transparent;border-radius:8px;overflow:hidden;z-index:1}
+.card-inner{position:relative;width:100%;height:100%;overflow:hidden;background:#1a1816;border:1px solid rgba(255,255,255,0.04);border-radius:8px;box-shadow:3px 5px 18px rgba(0,0,0,0.5);transition:border-color 0.5s ease,box-shadow 0.5s ease}
+.card.active .card-inner{border-color:rgba(201,169,110,0.35);box-shadow:0 0 0 1px rgba(201,169,110,0.15),8px 12px 40px rgba(0,0,0,0.6),0 0 80px rgba(201,169,110,0.04)}
+.card-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.05) 40%,transparent 80%);pointer-events:none;opacity:0;transition:opacity 0.35s ease}
+.card.active .card-overlay{opacity:1}
+.card-number{position:absolute;bottom:0.5rem;left:0.65rem;font-family:'JetBrains Mono',monospace;font-size:clamp(0.4rem,0.45vw,0.5rem);font-weight:400;letter-spacing:0.1em;color:rgba(255,255,255,0.5);pointer-events:none}
+.card.active .card-number{color:var(--accent)}
+.card.active{z-index:10;filter:brightness(1)}
+.card:not(.active){opacity:0.5;filter:brightness(0.5) saturate(0.5)}
+.card{transform-origin:bottom right}
+
+/* Bottom bar */
+#bottom-bar{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:0 clamp(1.5rem,4vw,4rem) clamp(0.8rem,1.2vh,1.2rem);pointer-events:none}
+#bottom-bar>*{pointer-events:auto}
+#bottom-inner{display:flex;align-items:center;justify-content:center;gap:clamp(1rem,2vw,2rem);max-width:600px;margin:0 auto}
+
+.nav-circle{width:clamp(1.8rem,2.2vw,2.2rem);height:clamp(1.8rem,2.2vw,2.2rem);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);cursor:pointer;transition:all 0.25s ease;color:rgba(232,228,220,0.25);font-size:clamp(0.7rem,0.9vw,0.85rem);-webkit-tap-highlight-color:transparent;user-select:none}
+.nav-circle:hover{background:rgba(201,169,110,0.08);border-color:rgba(201,169,110,0.2);color:var(--accent)}
+.nav-circle:active{transform:scale(0.9)}
+.nav-circle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.progress-wrap{flex:1;max-width:320px}
+.progress-track{width:100%;height:2px;background:rgba(255,255,255,0.04);border-radius:2px;position:relative;cursor:pointer;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;width:0%;transition:width 0.4s cubic-bezier(0.16,1,0.3,1)}
+.progress-thumb{position:absolute;top:50%;right:0;width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translate(50%,-50%);box-shadow:0 0 10px rgba(201,169,110,0.2);opacity:0;transition:opacity 0.25s ease}
+.progress-wrap:hover .progress-thumb{opacity:1}
+
+.indexer{font-family:'JetBrains Mono',monospace;font-size:clamp(0.6rem,0.8vw,0.75rem);font-weight:500;color:rgba(232,228,220,0.15);letter-spacing:0.05em;flex-shrink:0;min-width:clamp(3rem,4vw,4rem);text-align:right}
+.indexer span{color:var(--accent);font-weight:600}
+
+/* Mobile */
+@media(max-width:768px){
+:root{--card-w:clamp(110px,30vw,180px)}
+#main{flex-direction:column;padding-top:3.5rem;padding-bottom:0}
+#card-stage{flex:1;height:auto;min-height:40vh;align-items:center;padding-top:1vh}
+#info-panel{left:1rem;gap:0.5rem;max-width:clamp(8rem,30vw,12rem)}
+#info-title{font-size:clamp(0.8rem,3vw,0.95rem)}
+#info-desc{font-size:clamp(0.5rem,2vw,0.6rem);-webkit-line-clamp:3}
+#info-pdf-btn{padding:0.3rem 0.8rem;font-size:0.38rem}
+#track{padding-left:clamp(5rem,20vw,8rem)}
+.card{border-radius:6px;margin-right:0}
+.card:nth-child(n+5){display:none}
+.card.active .card-inner{box-shadow:0 0 0 1px rgba(201,169,110,0.15),4px 6px 20px rgba(0,0,0,0.5)}
+.nav-circle{width:1.5rem;height:1.5rem;font-size:0.55rem}
+.progress-wrap{max-width:180px}
+.indexer{min-width:2.5rem;font-size:0.5rem}
+}
+@media(max-width:480px){
+#card-stage{min-height:35vh;padding-top:0.5vh}
+#info-panel{left:0.75rem;gap:0.4rem;max-width:clamp(6rem,35vw,10rem)}
+#info-title{font-size:clamp(0.7rem,3.5vw,0.85rem)}
+#info-desc{font-size:clamp(0.45rem,2.5vw,0.55rem);-webkit-line-clamp:2}
+#info-pdf-btn{padding:0.25rem 0.7rem;font-size:0.35rem}
+#track{padding-left:clamp(4rem,22vw,6rem)}
+.card:nth-child(n+4){display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+.card,.card-inner,.card.active .card-inner,.bg-layer,#clouds-bg{transition:none!important}
+#clouds-bg{transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<svg class="grain-overlay" aria-hidden="true" style="position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:0.025;width:100%;height:100%">
+<filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+<rect width="100%" height="100%" filter="url(#noise)"/>
+</svg>
+
+<div id="kagit-bg"></div>
+<div id="dark-overlay"></div>
+<div id="clouds-bg"></div>
+<div class="bg-layer" id="bg-layer"></div>
+<div id="top-blur"></div>
+
+<div id="app">
+<header id="header">
+<a id="logo-wrap" href="#" aria-label="Küpeşte">
+<div id="logo-text">Küpe<span id="s-char">ş</span>te</div>
+<div id="logo-sub">Edebiyat &bull; Sanat</div>
+</a>
+<a id="insta" href="https://www.instagram.com/kupestedergi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+<span>IG</span>
+</a>
+</header>
+
+<div id="main">
+<div id="card-stage">
+<div id="info-panel">
+<div id="info-title"></div>
+<div id="info-desc"></div>
+<a id="info-pdf-btn" href="#" target="_blank" rel="noopener noreferrer">
+<span>SAYIYI OKU</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+</a>
+</div>
+<div id="track"></div>
+</div>
+</div>
+
+<div id="bottom-bar">
+<div id="bottom-inner">
+<div class="nav-arrows" style="display:flex;gap:0.3rem;flex-shrink:0">
+<button class="nav-circle" id="btn-prev" aria-label="Önceki sayı">&#10094;</button>
+<button class="nav-circle" id="btn-next" aria-label="Sonraki sayı">&#10095;</button>
+</div>
+<div class="progress-wrap">
+<div class="progress-track" id="progress-track">
+<div class="progress-fill" id="progress-fill"></div>
+<div class="progress-thumb" id="progress-thumb"></div>
+</div>
+</div>
+<div class="indexer"><span id="indexer-current">54</span> / 54</div>
+</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function(){
+'use strict';
+
+var TOTAL = 54;
+var current = 0;
+var animating = false;
+var currentTrackX = 0;
+var dragState = null;
+var wasDragged = false;
+var dragPointerId = null;
+
+// DOM refs
+var bgLayer = document.getElementById('bg-layer');
+var track = document.getElementById('track');
+var infoTitle = document.getElementById('info-title');
+var infoDesc = document.getElementById('info-desc');
+var infoPdfBtn = document.getElementById('info-pdf-btn');
+var sChar = document.getElementById('s-char');
+var progressFill = document.getElementById('progress-fill');
+var progressThumb = document.getElementById('progress-thumb');
+var progressTrack = document.getElementById('progress-track');
+var indexerCurrent = document.getElementById('indexer-current');
+var cloudsBg = document.getElementById('clouds-bg');
+
+// Issue themes
+var issueThemes = [
+"54. sayının teması: Esaret. Yaşarken fark edemediğimiz, başkasının sözüyle gördüğümüz esaret halleri. Bazen kendimize kendimizi esir ederiz. Esir şehirler, esir kalpler ve esaretten kurtuluşun, hürriyetin sancılı yolculuğu üzerine bir sayı.",
+"53. sayının teması: Kalem. 'Kalemle yazmayı öğreten O'dur' ayetinden ilhamla, kaleme ve kitaba tutunanların kalemin peşinde yolculuğu. Kimi zaman bir minare, kimi zaman bir bebeğin işaret parmağı olan kalemin kadim hikâyesi.",
+"52. sayının teması: Gençlik. Beşinci yaşını kutlayan Küpeşte'de, dört bin yıldır 'Bu gençlik nereye gidiyor?' sitemine inat, gençliği bir imkân, bir hazine olarak ele alış. Gençlik bir akarsu gibi geçmişi âna bağlayarak geleceği besler.",
+"51. sayının teması: Yetişmek / Yetişememek. Doğumdan mezara koşuşturmayla geçen ömür; okula, işe, nikâha, cenazeye yetişme telaşı. Mükemmeliyetçilik ile yavaşlamak arasında dengeyi bulmak ve nasibimiz kadar koşabilmek üzerine.",
+"50. sayının teması: Elli Sayı / Yeniden Merhaba. Hastalıklar, vefatlar, yas süreci derken açtığımız kapalı perde. Nice konuya, hayale, kalemin sesine şahitlik ettiğimiz elli ayın ardından yeniden Bismillah deyişimiz.",
+"49. sayının teması: Hayvan Sevgisi. Yaratılanı sev, Yaratan'dan ötürü. İnsan kadar hayvanlara duyulan sevgi de insanî. Şiddetin arttığı şu günlerde merhameti çoğaltmak, iyilikten yana olmak adına hayvanlara uzanan bir sayı.",
+"48. sayının teması: Çiçek. Şiirlerin, şarkıların, sevgililerin anlam yüklü metaforu çiçekler. Gül, yasemin, leylak, nergis... Her biri bir duygunun tercümanı, her biri bir hatıranın canlı şahidi. Sayfalarımızda çiçek rayihaları.",
+"47. sayının teması: Kitap. Pandemi günlerinde sımsıkı tutunduğumuz kitaplar, 'Kaleme ve Kitaba Tutunanlara' düsturumuz. Gazzeli kardeşlerimizin tarihin en can yakıcı satırlarını yazarken tutundukları kitaplar ve bizim tutunduklarımız.",
+"46. sayının teması: Pencere. İki pencere arasında geçen fani ömür; doğarken merakla açılan, ölürken sevgiliye kavuşma sevinciyle kapanan. Her birimiz farklı pencerelerden selamlıyoruz dünyayı ve birbirimizi.",
+"45. sayının teması: Pişmanlık. Dağdan kopup gelen kar tanesi misali sürüklenirken yaşadığımız pişmanlıklar. Kimi fırsata çeviren, kimi yakasını kurtaramayan. İnsan olduğumuz için düştüğümüz bu imtihanın en az hasarla üstesinden gelmek.",
+"44. sayının teması: Kapı. Nisanda kapıları konuşturduk; gönül kapısı, dua kapısı, el kapısı... Kimi ardına kadar açık, kimi duvar misali. Filistin'e hayırlı kapılar, zalimlere sonsuza kadar kapalı kapılar dileyerek.",
+"43. sayının teması: Özgürlük. Mart ayında, her türlü kayıttan azade olma hasreti. Gazzelilerin direnişinden ilhamla, özgürlüğün aslında günlük dertlerimiz olduğunu hatırlamak. En güzel özgürlük kuşları Filistin semalarında kanat çırpana dek.",
+"42. sayının teması: Zaman. Akrep ve yelkovanla yarışan insanın bitmeyen telaşı. Duvar saati, kol saati, telefon alarmı derken yetişemediğimiz bir ömür. Zamanı durdurup Gazze'de unutulan çocukların güzel günlerini geri getirme duası.",
+"41. sayının teması: Ev. İki harften ibaret ama kâinat kadar anlam barındıran bir kelime: Ev. Aşkıyla yananlar için Kâbe, yazarak nefes alanlar için kalem ve kağıt, mazlumlar için bir çadır. Aslolan ruhun huzurlu olduğu yer.",
+"40. sayının teması: Değişim. İnsanın küçük dünyasında bir damla suyla başlayıp bir avuç toprakla biten yolculuk. Her an, her nefeste yaşadığımız dönüşüm ve değişmeyen tek şey olan umut üzerine bir sayı.",
+"39. sayının teması: Filistin. Kabil'den bu yana dökülen kardeş kanına karşı kalemle tarihe not düşmek. Gazze'de yaşanan soykırıma kelimelerimizle 'Yeter!' demek ve zeytin ağaçlarının yerine umut dikmek.",
+"38. sayının teması: Polisiye. Ekim ayında edebiyatın en heyecanlı türlerinden polisiyeye mercek tuttuk. Ahmet Mithat'tan Ahmet Ümit'e, Agatha Christie'den Umberto Eco'ya uzanan bir cinayetler ve sırlar yolculuğu.",
+"37. sayının teması: Eğitim. Sonbaharla başlayan okul telaşında, beşikten mezara devam eden öğrenme yolculuğu. Okul sadece dört duvar değil; bakmasını, görmesini, öğrenmesini bilene her yer okul.",
+"36. sayının teması: Bozkır. Neşet Ertaş türküleriyle süslenmiş, bozkır kokan sayfalar. Kalemiyle, türküsüyle, kamerasıyla o toprakları yaşatmış ustalardan ilhamla hazırlanmış bir sayı. Bozkırın sessiz çığlığı.",
+"35. sayının teması: Kadın. Hayatın uzun cümlesinde çoğunlukla gizli özne olan kadın; doğuran, çalışan, üreten, şiddete maruz kalan, kıymeti bilinen ellerde çiçek açan. Eski Türklerden günümüze kadının hak ettiği saygınlık.",
+"34. sayının teması: Çocuk Edebiyatı. Okullar tatile girerken çocuk cıvıltılarıyla dolan sayfalarımız. Mevlâna İdris'in hatırasına, çocuk kaleminin saflığına, hayal gücünün sınırsızlığına açılan bir pencere.",
+"33. sayının teması: Mizah. Rıfat Ilgaz'ın dediği gibi mizah bir tür değil, mizaçtan gelen bir çeşni; güldürürken düşündüren, hicvederken inceltmeyen bir üslup. Baharın son günlerinde edebiyatın güldüren yüzü.",
+"32. sayının teması: İhsan. Allah'ı görüyormuşçasına yaşamak, her an O'nun huzurunda olduğunu bilmenin bilinci. Güzel ahlakın, samimiyetin ve en güzel şekilde kul olmanın sırrı üzerine bir sayı.",
+"31. sayının teması: Seher. Gecenin en karanlık anında doğan aydınlık, imsak vaktinde içilen ilk yudum su, seher yeliyle gelen ferahlık. Uykudan uyanıp Hakka yönelen gönüllerin huzuru.",
+"30. sayının teması: Takva. Ramazanın gölgesinde nefsi terbiye, kalbi arındırma gayreti. Görünenden öteye, zahirden batına yolculuk ve Allah'a yakınlaşmanın en samimi hali.",
+"29. sayının teması: Dua. Yeni yıla girerken eller semaya yükselir. Her derdin dermanı, her kapının anahtarı, her sıkıntının ilacı olan dua. Gece yarısı gözyaşıyla ıslanan seccâdelerde yankılanan o sessiz çığlık.",
+"28. sayının teması: Kış. Aralık soğuğunda sobaya yaslanıp dinlenen masallar, karla kaplanmış sessizlikte duyulan iç ses. Beyazın saflığında kaybolup yeniden doğmak üzerine bir sayı.",
+"27. sayının teması: Hz. Mevlâna ve Vuslat. Kasımın hüznünde, Şeb-i Arus'u anarken ölümün aslında bir düğün gecesi olduğunu idrak etmek. 'Biz ayrılık gününde öldük diye üzülme, vuslat günüdür bu' diyen çağrı.",
+"26. sayının teması: İyilik. Ekim yaprakları dökülürken yeşeren iyilik tohumları. Görünmez elçiler gibi dolaşan sadakalar, gizlice yapılan dualar, karşılık beklemeyen yardımlar ve iyiliğin sarmaladığı bir dünya.",
+"25. sayının teması: Şehir. Eylül ve İstanbul, Kudüs, Mekke, Edirne... Her şehrin kendine has bir ruhu, bir kokusu, bir hikâyesi vardır. Beton yığınları arasında kaybolan kadim şehir kimliğine dair satırlar.",
+"24. sayının teması: Medeniyet. Ağustosta gölgesine sığındığımız kadim şehirler, taşın toprağın konuştuğu mimariler. İnsanı insan yapan o büyük miras ve kültür birikimi üzerine.",
+"23. sayının teması: Rüya. Temmuz gecelerinde yıldızların altında kurulan hayaller. Uyanıkken görülen düşler, uykuda ziyaret edilen alemler ve hakikatle hayal arasında salınan bir sayı.",
+"22. sayının teması: Gurbet. Haziran sıcağında vatan hasretiyle yanan gönüller. Uzak diyarlara düşen yollar, memleket özlemiyle yoğrulmuş satırlar ve her gurbetlinin yüreğinde taşıdığı o derin sızı.",
+"21. sayının teması: Güzellik. Mayısın getirdiği çiçeklerle bezenmiş bir âlemde, gözümüze ilişen her güzelde Yaradan'ın izini sürmek. İnsanda, tabiatta, sanatta tecelli eden o eşsiz cemal.",
+"20. sayının teması: Kardeşlik. Nisanla yeşeren bağlar, aynı anneden doğmuşçasına birbirine kenetlenen gönüller. Kan bağından öte ruh akrabalığı; omuz omuza birlik olmanın bereketi.",
+"19. sayının teması: İmtihan. Hayatın her anında karşımıza çıkan o ince sınav; sabırla şükrün, acıyla sevincin iç içe geçtiği dünya imtihanı. Her zorlukla birlikte gelen kolaylık üzerine bir sayı.",
+"18. sayının teması: Söz. Ocak ayazında ağızdan çıkan her kelimenin ağırlığı. Söz vermek, sözünde durmak, susmak ve konuşmak arasındaki ince çizgi. Kalemin ucunda titreyen o kıymetli emanet.",
+"17. sayının teması: Ümit. Yılın son gününde, karanlığın en derin anında doğacak ışığa inanç. İçimizde hiç sönmeyen o küçük ateş; zorluklar karşısında dimdik ayakta tutan umudun hasbî hali.",
+"16. sayının teması: Hatıra. Kışın ilk soğuğunda albüm sayfalarını aralarken canlanan eski fotoğraflar. Çocukluğun o sıcak anıları, ninelerin masalları, dedelerin nasihati ve hafızamızda taze kalan silinmez izler.",
+"15. sayının teması: Vefa. Kasım rüzgârında savrulurken geçmişe uzanan minnet dolu eller. Bir fincan kahvenin kırk yıllık hatırı, eski dostluklar, unutulmayan dualar ve vefanın edeple yoğrulmuş hali.",
+"14. sayının teması: İz. Tarihe düşülen notlar, peşimizden gelen gölgeler, geride bıraktığımız ayak izleri. Birinci yılını dolduran dergimizde, iz bırakan şahsiyetler ve silinmeyen hatıralar üzerine.",
+"13. sayının teması: Dönüş. Eylülle birlikte başlayan dönüşler; yazdan şehre, yollardan evlere, dağınıklıktan düzene. Leyleklerin gidişiyle hüzünlenen, okul zilleriyle heyecanlanan kalplerin mevsimi.",
+"12. sayının teması: Hasat. Yaz ortasında emeklerin meyveye durduğu, alın terinin karşılık bulduğu an. Tarladan sofraya, kalemden sayfaya uzanan bereket zincirinde toplanan mahsulün öyküsü.",
+"11. sayının teması: Yolculuk. Yaza uzanırken yollara düşen gönüller; her yolculuk bir iç yolculuktur aslında. Bavullarda taşınan anılar, ufuk çizgisinde kaybolan hayaller ve varılan her menzilde kendini bulmak.",
+"10. sayının teması: Bayram Sevinci. Sevincin gözlere yansıdığı, kırgınlıkların unutulduğu, küçük ellerin öpüldüğü o mübarek gün. Bayramlık heyecanıyla çocuklaşan gönüllerin şenliği.",
+"9. sayının teması: Ramazan İklimi. Oruçla arınan bedenler, huşuyla eğilen başlar, iftarda birleşen sofralar. On bir ayın sultanının gölgesinde, sabır ve şükür arasında salınan nefeslerin hikâyesi.",
+"8. sayının teması: Nisan Yağmurları. Rahmetle inen her damlanın toprakta can buluşu gibi, kelimelerin kalplerde filizlenişi. Arınmanın, temizlenmenin ve bereketin müjdecisi yağmur altında bir sayı.",
+"7. sayının teması: Bahar. Martla birlikte gelen tazeleniş; dallarda tomurcuk, toprakta yeşil, gökte kuşlarla yeniden uyanan dünya. İçimizde solan ne varsa yeniden çiçek açma vaktidir.",
+"6. sayının teması: Merhamet. Şubat soğuğunda yürekleri ısıtan o ince sızı; insanın insana, hayvana, tabiata uzanan şefkat eli. Acıyı dindiren, yarayı saran, gözyaşını silen merhamet ikliminde bir yolculuk.",
+"5. sayının teması: Yeniden Doğuş. Kışın ortasında, yeni bir yıla girerken toprağın altında yeşermeyi bekleyen tohum gibi; ümitle beklenen dirilişin, yenilenmenin ve sıfırdan başlamanın bereketi üzerine bir sayı.",
+"4. sayının teması: Hesap ve Tövbe. Kızgınlığın, öfkenin ve hüznün tellerini titreten hayat karşısında secdeye varıp yüzünü O'na dönenlerin muhasebesi. La ile başlayan yolculukta, yok'luğunla var olduğun o son hesap.",
+"3. sayının teması: Uyanış. Dünya dönerken yarım kalmışlıklarımızla başladığımız her yeni uyanış, azala azala tükenen ruhumuz. Serçe gibi bir 'hiç'le başlayabilmek ve nâtamam cümlelerimizi tamamlamak vaktidir.",
+"2. sayının teması: Menzil. Ruhumuzun seyir terasından baktığımızda gördüğümüz o uzak diyar; hayatın zorluklarında kaybolmuşken içimizde yankılanan 'ben buradayım' sesi. Menzilimize ermek üzerine.",
+"1. sayının teması: Başlangıç. Kaleme ve kitaba tutunanların ilk adımı. Hayatın kaygan zemininde düşme korkusuna inat, sımsıkı tutunduğumuz küpeşteyle yola çıkışın hikâyesi. Bir avuç sanat, kültür ve edebiyat sevdalısı olarak 'Merhaba!' deyişimiz."
+];
+
+function pad(n){return n<10?'0'+n:''+n}
+function getRealIssueNum(i){return TOTAL-i}
+function getCoverPath(i){return 'K\u00fcpe\u015fte/kapak/sayi'+pad(getRealIssueNum(i))+'.jpg'}
+function getPdfPath(i){return 'K\u00fcpe\u015fte/sayilar/Kupeste_dergi_Sayi_'+pad(getRealIssueNum(i))+'.pdf'}
+function getDescription(i){return issueThemes[i]}
+function getTheme(i){var t=issueThemes[i],c=t.indexOf(':');return c>0?t.substring(c+1).trim():''}
+function getTitle(i){var t=issueThemes[i],c=t.indexOf(':');return c>0?t.substring(0,c).trim():'Say\u0131 '+getRealIssueNum(i)}
+
+function getThemeHue(i){
+	var title=getTitle(i)+'Kupeste2026';
+	var hash=0;
+	for(var j=0;j<title.length;j++){hash=title.charCodeAt(j)+((hash<<5)-hash);hash=hash&hash}
+	return Math.abs(hash)%80+20;
+}
+
+function applyBgColor(idx){
+	var hue=getThemeHue(idx);
+	bgLayer.style.background='radial-gradient(ellipse 100% 50% at 50% 0%,hsla('+hue+',30%,15%,0.5),transparent),radial-gradient(ellipse 60% 70% at 80% 100%,hsla('+((hue+50)%360)+',25%,10%,0.4),transparent),radial-gradient(ellipse 80% 60% at 20% 50%,hsla('+((hue+100)%360)+',20%,8%,0.3),transparent)';
+}
+
+function updateClouds(idx,instant){
+	if(!cloudsBg)return;
+	var pitch=getCardPitch();
+	var parallaxFactor=0.3;
+	var pct=idx/(TOTAL-1);
+	var tx=-pct*pitch*(TOTAL-1)*parallaxFactor*0.6;
+	if(instant)gsap.set(cloudsBg,{x:tx});
+	else gsap.to(cloudsBg,{x:tx,duration:0.6,ease:'power2.out',overwrite:'auto'});
+}
+
+function buildCards(){
+for(var i=0;i<TOTAL;i++){
+var card=document.createElement('div');
+card.className='card'+(i===current?' active':'');
+card.dataset.index=i;
+card.innerHTML='<div class="card-inner"><img class="card-cover" src="'+getCoverPath(i)+'" alt="Küpeşte '+getRealIssueNum(i)+'. sayı" loading="lazy" draggable="false"><div class="card-overlay"></div><div class="card-number">SAYI: '+pad(getRealIssueNum(i))+'</div></div>';
+card.addEventListener('click',function(){
+if(wasDragged){wasDragged=false;return;}
+var idx=parseInt(this.dataset.index);
+if(idx!==current)goTo(idx);
+});
+track.appendChild(card);
+}
+}
+
+function updateInfo(){
+var ri=getRealIssueNum(current);
+var theme=getTheme(current);
+infoTitle.textContent=ri+'. say\u0131';
+infoDesc.textContent=theme;
+infoPdfBtn.href=getPdfPath(current);
+}
+
+function updateMeta(){
+var ri=getRealIssueNum(current);
+indexerCurrent.textContent=ri;
+var pct=current/(TOTAL-1)*100;
+progressFill.style.width=pct+'%';
+}
+
+function updateActiveCard(){
+var cards=track.children;
+for(var i=0;i<cards.length;i++)cards[i].classList.toggle('active',i===current);
+}
+
+function getCardPitch(){
+if(!track.children.length)return 160;
+var card=track.children[0];
+var w=card.offsetWidth;
+var style=getComputedStyle(track);
+var gap=parseFloat(style.gap)||0;
+return w+gap;
+}
+
+function centerTrack(instant){
+var stage=document.getElementById('card-stage');
+if(!stage||!track.children.length)return;
+var pitch=getCardPitch();
+var infoPanel=document.getElementById('info-panel');
+var infoW=infoPanel?infoPanel.offsetWidth+parseInt(getComputedStyle(infoPanel).left):0;
+var gap=parseInt(getComputedStyle(track).paddingLeft)||0;
+var offset=Math.max(infoW,gap);
+var tx=offset-current*pitch;
+currentTrackX=tx;
+if(instant)gsap.set(track,{x:tx});
+else gsap.to(track,{x:tx,duration:0.5,ease:'power3.out',overwrite:'auto'});
+}
+
+function goTo(target){
+if(animating)return;
+if(target<0)target=TOTAL-1;
+if(target>=TOTAL)target=0;
+if(target===current)return;
+animating=true;
+
+var oldIdx=current;
+current=target;
+
+updateActiveCard();
+
+var cards=track.children;
+var oldActive=cards[oldIdx];
+var newActive=cards[current];
+
+updateInfo();
+updateMeta();
+applyBgColor(current);
+updateClouds(current);
+
+var tl=gsap.timeline({
+onComplete:function(){
+animating=false;
+}
+});
+
+// 1. Old active card scale down
+if(oldActive && oldActive!==newActive){
+tl.to(oldActive,{scale:1,duration:0.25,ease:'power2.in'},0);
+}
+
+// 2. New active card scale up — bigger
+if(newActive){
+tl.set(newActive,{scale:1},0);
+tl.to(newActive,{scale:1.35,duration:0.55,ease:'back.out(2.5)'},0.05);
+}
+
+// 3. Track slide
+centerTrack(false);
+
+// 4. Info transition
+var oldText=infoTitle.textContent;
+infoTitle.textContent=getRealIssueNum(current)+'. say\u0131';
+var theme=getTheme(current);
+infoDesc.textContent=theme;
+tl.fromTo([infoTitle,infoDesc],{y:-12,opacity:0},{y:0,opacity:1,duration:0.35,ease:'power2.out',stagger:0.04},0.15);
+}
+
+function goNext(){goTo(current+1)}
+function goPrev(){goTo(current-1)}
+
+function goInstant(dir){
+var target=current+dir;
+if(target<0)target=TOTAL-1;
+if(target>=TOTAL)target=0;
+if(target===current)return;
+current=target;
+gsap.killTweensOf(track);
+gsap.killTweensOf('[data-index]');
+updateActiveCard();
+updateInfo();
+updateMeta();
+applyBgColor(current);
+updateClouds(current);
+var stage=document.getElementById('card-stage');
+if(stage&&track.children.length){
+var pitch=getCardPitch();
+var infoPanel=document.getElementById('info-panel');
+var infoW=infoPanel?infoPanel.offsetWidth+parseInt(getComputedStyle(infoPanel).left):0;
+var gap=parseInt(getComputedStyle(track).paddingLeft)||0;
+var tx=Math.max(infoW,gap)-current*pitch;
+currentTrackX=tx;
+gsap.set(track,{x:tx});
+}
+gsap.set('[data-index]',{scale:1});
+gsap.set(track.children[current],{scale:1.35});
+}
+
+// Wheel
+var wheelTimer;
+function setupWheel(){
+window.addEventListener('wheel',function(e){
+if(Math.abs(e.deltaY)<10)return;
+if(wheelTimer)return;
+wheelTimer=true;
+if(e.deltaY>0)goNext();
+else goPrev();
+setTimeout(function(){wheelTimer=false;},300);
+},{passive:true});
+}
+
+// Drag
+function setupDrag(){
+var setTrackX=gsap.quickSetter(track,'x','px');
+track.addEventListener('pointerdown',function(e){
+if(dragPointerId!==null)return;
+	if(animating){
+	gsap.killTweensOf(track);
+	gsap.killTweensOf('[data-index]');
+	gsap.killTweensOf([infoTitle,infoDesc]);
+	animating=false;
+	currentTrackX=gsap.getProperty(track,'x');
+	}
+wasDragged=false;
+dragPointerId=e.pointerId;
+dragState={startX:e.clientX,startTrackX:currentTrackX,latestDx:0};
+});
+document.addEventListener('pointermove',function(e){
+if(dragPointerId===null||e.pointerId!==dragPointerId||!dragState)return;
+var dx=e.clientX-dragState.startX;
+if(Math.abs(dx)>5)wasDragged=true;
+dragState.latestDx=dx;
+setTrackX(dragState.startTrackX+dx);
+});
+document.addEventListener('pointerup',function(e){
+if(dragPointerId===null||e.pointerId!==dragPointerId)return;
+dragPointerId=null;
+if(!dragState)return;
+var ds=dragState;
+dragState=null;
+if(!wasDragged)return;
+var tx=ds.startTrackX+ds.latestDx;
+var infoPanel=document.getElementById('info-panel');
+var infoW=infoPanel?infoPanel.offsetWidth+parseInt(getComputedStyle(infoPanel).left):0;
+var gap=parseInt(getComputedStyle(track).paddingLeft)||0;
+var offset=Math.max(infoW,gap);
+var pitch=getCardPitch();
+var idx=Math.round((offset-tx)/pitch);
+idx=Math.max(0,Math.min(TOTAL-1,idx));
+gsap.set(track,{x:tx});
+currentTrackX=tx;
+if(idx===current){centerTrack(false);return;}
+goTo(idx);
+});
+document.addEventListener('pointercancel',function(e){
+if(dragPointerId===null||e.pointerId!==dragPointerId)return;
+dragPointerId=null;
+dragState=null;
+centerTrack(false);
+});
+}
+
+// Logo animation
+var sHoverTL;
+function setupLogoAnim(){
+if(!sChar)return;
+sChar.addEventListener('mouseenter',function(){
+if(sHoverTL&&sHoverTL.isActive())sHoverTL.kill();
+sHoverTL=gsap.to(sChar,{rotation:10,skewX:8,scale:1.12,duration:0.4,ease:'elastic.out(1,0.3)',overwrite:'auto'});
+});
+sChar.addEventListener('mouseleave',function(){
+if(sHoverTL&&sHoverTL.isActive())sHoverTL.kill();
+sHoverTL=gsap.to(sChar,{rotation:0,skewX:0,scale:1,duration:0.35,ease:'power2.out',overwrite:'auto'});
+});
+}
+
+// Keyboard
+function setupKeyboard(){
+window.addEventListener('keydown',function(e){
+var k=e.key;
+if(k==='ArrowRight'||k==='ArrowDown'||k===' '||k==='Spacebar'){e.preventDefault();if(e.repeat){goInstant(1);return;}if(animating){gsap.killTweensOf(track);gsap.killTweensOf('[data-index]');gsap.killTweensOf([infoTitle,infoDesc]);animating=false;}goNext();return;}
+if(k==='ArrowLeft'||k==='ArrowUp'){e.preventDefault();if(e.repeat){goInstant(-1);return;}if(animating){gsap.killTweensOf(track);gsap.killTweensOf('[data-index]');gsap.killTweensOf([infoTitle,infoDesc]);animating=false;}goPrev();return;}
+});
+}
+
+// Buttons
+function setupButtons(){
+document.getElementById('btn-prev').addEventListener('click',goPrev);
+document.getElementById('btn-next').addEventListener('click',goNext);
+}
+
+// Progress bar click
+function setupProgress(){
+progressTrack.addEventListener('click',function(e){
+var rect=this.getBoundingClientRect();
+var pct=(e.clientX-rect.left)/rect.width;
+var idx=Math.round(pct*(TOTAL-1));
+idx=Math.max(0,Math.min(TOTAL-1,idx));
+goTo(idx);
+});
+}
+
+// Resize
+function setupResize(){
+var rt;
+window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){centerTrack(true);},100);});
+}
+
+// Preload
+function preloadCovers(){
+for(var i=0;i<TOTAL;i++){var img=new Image();img.src=getCoverPath(i);}
+}
+
+buildCards();
+updateInfo();
+updateMeta();
+updateActiveCard();
+applyBgColor(current);
+updateClouds(current,true);
+setupLogoAnim();
+setupKeyboard();
+setupButtons();
+setupProgress();
+setupWheel();
+setupDrag();
+setupResize();
+preloadCovers();
+
+requestAnimationFrame(function(){centerTrack(true);});
+
+// Initial active card scale
+var initCards=track.children;
+if(initCards[current]){
+gsap.set(initCards[current],{scale:1.15});
+gsap.to(initCards[current],{scale:1.35,duration:0.7,ease:'back.out(2.5)',delay:0.3});
+}
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Küpeşte — Edebiyat Sanat ve Kültür Dergisi</title>
+<meta name="description" content="Küpeşte edebiyat, sanat ve kültür dergisi. 54 sayı, şiir, öykü, deneme, inceleme ve eleştiri. Türk edebiyatının güncel sesi.">
+<meta name="keywords" content="küpeşte, edebiyat dergisi, sanat dergisi, kültür dergisi, türk edebiyatı, şiir, öykü, deneme">
+<link rel="canonical" href="https://kupestedergi.com/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>K</text></svg>">
+<meta property="og:title" content="Küpeşte — Edebiyat Sanat ve Kültür Dergisi">
+<meta property="og:description" content="54 sayılık edebiyat, sanat ve kültür dergisi. Şiir, öykü, deneme, inceleme.">
+<meta property="og:image" content="https://kupestedergi.com/K%C3%BCpe%C5%9Fte/kupeste.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Küpeşte — Edebiyat Sanat ve Kültür Dergisi">
+<meta name="twitter:description" content="54 sayılık edebiyat, sanat ve kültür dergisi arşivi.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{gold:{50:'#faf6f0',100:'#f2e8d8',200:'#e4d0b0',300:'#d4b388',400:'#c9a96e',500:'#b8944f',600:'#a07d40',700:'#8b5e3c',800:'#6e4a31',900:'#5a3d2a',950:'#322217'}}}}}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--accent:#6b4a2e;--accent-light:#8b6a4a;--bg:#f6f2ea;--text:#1a1816;--text-dim:#7a756e;--border:#e0d8cc;--card-w:clamp(150px,17vw,260px)}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);overflow:hidden;font-family:'Inter',system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* Kağıt texture */
+#kagit-bg{position:fixed;inset:0;z-index:-5;background-image:url('Kağıt.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.06;pointer-events:none;transform:scaleX(-1)}
+
+/* Süsleme motifi — çini esintili geometrik desen */
+#ornament{position:fixed;bottom:clamp(4rem,8vh,7rem);left:clamp(1.5rem,3vw,3rem);z-index:1;pointer-events:none;opacity:0.03;width:clamp(50px,6vw,90px);height:clamp(50px,6vw,90px)}
+
+.bg-layer{position:fixed;inset:0;z-index:-2;pointer-events:none;transition:background 1.2s ease;opacity:0.1}
+
+/* Top blur */
+#top-blur{position:fixed;top:0;left:0;right:0;height:clamp(4rem,8vh,6rem);z-index:1;background:linear-gradient(to bottom,rgba(246,242,234,0.85) 0%,rgba(246,242,234,0.2) 60%,transparent 100%);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);pointer-events:none}
+
+/* Grain */
+.grain-overlay{position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:0.025}
+
+/* App */
+#app{position:fixed;inset:0;z-index:2;display:flex;flex-direction:column;pointer-events:none}
+#app>*{pointer-events:auto}
+
+/* Header */
+#header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:clamp(0.6rem,1.2vh,1rem) clamp(1.25rem,2.5vw,2.5rem);pointer-events:none;background:rgba(246,242,234,0.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#header>*{pointer-events:auto}
+#header-left{flex:1 1 0;display:flex;align-items:center;justify-content:flex-start}
+#header-center{flex:1 1 0;display:flex;flex-direction:column;align-items:center}
+#header-right{flex:1 1 0;display:flex;align-items:center;justify-content:flex-end}
+#logo-wrap{display:flex;flex-direction:column;align-items:center;text-decoration:none;cursor:default;gap:2px}
+#logo-img{height:clamp(2.2rem,3.2vw,3.5rem);width:auto;pointer-events:none}
+#logo-sub{font-family:'JetBrains Mono',monospace;font-size:clamp(0.45rem,0.55vw,0.6rem);letter-spacing:0.25em;text-transform:uppercase;color:var(--text-dim);margin-top:2px;text-align:center}
+#header-nav{display:flex;align-items:center;gap:clamp(0.15rem,0.4vw,0.5rem)}
+.hdr-btn{font-family:'JetBrains Mono',monospace;font-size:clamp(0.55rem,0.7vw,0.75rem);font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);background:none;border:none;cursor:pointer;padding:0.35rem 0.6rem;border-radius:3px;transition:color 0.25s ease,background 0.25s ease;-webkit-tap-highlight-color:transparent}
+.hdr-btn:hover{color:var(--accent);background:rgba(107,74,46,0.04)}
+.hdr-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hdr-btn:active{transform:scale(0.96)}
+
+#insta{display:flex;align-items:center;gap:0.45rem;text-decoration:none;color:rgba(0,0,0,0.55);font-family:'JetBrains Mono',monospace;font-size:clamp(0.65rem,0.8vw,0.85rem);font-weight:600;letter-spacing:0.12em;transition:color 0.3s ease;padding:0.4rem 0.8rem;border:1.5px solid rgba(0,0,0,0.12);border-radius:5px}
+#insta:hover{color:var(--accent);border-color:var(--accent);background:rgba(107,74,46,0.04)}
+#insta:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+#insta svg{width:16px;height:16px;transition:transform 0.3s ease}
+#insta:hover svg{transform:translateY(-1px)}
+
+/* Grid toggle (header) */
+#btn-grid-toggle{font-family:'JetBrains Mono',monospace;font-size:clamp(0.5rem,0.65vw,0.7rem);font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);background:none;border:1px solid var(--border);cursor:pointer;padding:0.3rem 0.65rem;border-radius:3px;transition:all 0.25s ease;flex-shrink:0;line-height:1}
+#btn-grid-toggle:hover{color:var(--accent);border-color:var(--accent);background:rgba(107,74,46,0.04)}
+#btn-grid-toggle.active{color:var(--accent);border-color:var(--accent);background:rgba(107,74,46,0.08)}
+#btn-grid-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Main */
+#main{flex:1;display:flex;flex-direction:column;position:relative;padding-top:4.5rem;padding-bottom:0}
+
+/* Card stage */
+#card-stage{flex:1;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;z-index:3;padding-top:1vh}
+
+/* YENİ badge */
+.yeni-badge{position:absolute;top:0.5rem;right:0.5rem;z-index:20;background:var(--accent);color:var(--bg);font-family:'JetBrains Mono',monospace;font-size:clamp(0.35rem,0.4vw,0.45rem);font-weight:600;letter-spacing:0.08em;padding:0.2rem 0.5rem;border-radius:3px;pointer-events:none;opacity:0;transition:opacity 0.4s ease}
+.card.active .yeni-badge{opacity:1}
+/* Hue glow */
+@keyframes hue-glow{0%{box-shadow:0 0 18px rgba(107,74,46,0.08),0 0 0 1px rgba(107,74,46,0.08),0 2px 6px rgba(0,0,0,0.04)}25%{box-shadow:0 0 30px rgba(180,148,79,0.2),0 0 0 1px rgba(180,148,79,0.12),0 2px 6px rgba(0,0,0,0.04)}50%{box-shadow:0 0 40px rgba(139,94,60,0.28),0 0 0 1px rgba(139,94,60,0.18),0 2px 6px rgba(0,0,0,0.04)}75%{box-shadow:0 0 30px rgba(228,208,176,0.2),0 0 0 1px rgba(228,208,176,0.12),0 2px 6px rgba(0,0,0,0.04)}100%{box-shadow:0 0 18px rgba(107,74,46,0.08),0 0 0 1px rgba(107,74,46,0.08),0 2px 6px rgba(0,0,0,0.04)}}
+.card .card-inner{animation:hue-glow 3s ease-in-out infinite}
+.card.active .card-inner{border-color:var(--accent-light)}
+.card .card-inner::before{content:'';position:absolute;width:40%;height:40%;border-radius:50%;background:radial-gradient(circle,rgba(180,148,79,0.15),transparent 70%);pointer-events:none;z-index:2;transition:top 0.15s ease,left 0.15s ease;top:var(--glow-y,50%);left:var(--glow-x,50%);transform:translate(-50%,-50%)}
+
+/* Issue info */
+#issue-info{display:flex;flex-direction:column;align-items:center;gap:0.4rem;padding:4.6rem clamp(1rem,3vw,3rem) clamp(3rem,6vh,5rem);text-align:center;position:relative;z-index:5;pointer-events:none;flex-shrink:0;align-self:center}
+#issue-info>*{pointer-events:auto}
+#issue-divider{width:clamp(2rem,3vw,3.5rem);height:1px;background:var(--border);margin:0 auto 0.25rem}
+#issue-number{font-family:'JetBrains Mono',monospace;font-size:clamp(0.85rem,1vw,1.1rem);font-weight:600;letter-spacing:0.1em;color:var(--accent)}
+#issue-desc{font-family:'Inter',system-ui,sans-serif;font-size:clamp(0.9rem,1.1vw,1.15rem);font-weight:360;line-height:1.65;color:var(--text);max-width:clamp(20rem,36vw,32rem)}
+#issue-pdf-btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.45rem 1.2rem;font-family:'JetBrains Mono',monospace;font-size:clamp(0.5rem,0.6vw,0.6rem);font-weight:500;letter-spacing:0.15em;color:var(--accent);border:1px solid var(--border);background:transparent;cursor:pointer;text-decoration:none;transition:all 0.25s ease;border-radius:4px;margin-top:0.25rem}
+#issue-pdf-btn:hover{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+#issue-pdf-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+#issue-pdf-btn:active{transform:scale(0.97)}
+
+/* Share buttons */
+#share-buttons{display:flex;align-items:center;gap:0.5rem;margin-top:0.75rem;opacity:0;transition:opacity 0.4s ease}
+#share-buttons.show{opacity:1}
+.share-btn{display:flex;align-items:center;justify-content:center;width:clamp(1.6rem,2vw,2rem);height:clamp(1.6rem,2vw,2rem);border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--text-dim);transition:all 0.25s ease;padding:0.25rem}
+.share-btn:hover{color:var(--accent);border-color:var(--accent);background:rgba(107,74,46,0.04)}
+.share-btn:active{transform:scale(0.9)}
+.share-btn svg{width:100%;height:100%}
+#share-label{font-family:'JetBrains Mono',monospace;font-size:clamp(0.35rem,0.4vw,0.4rem);font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-right:0.2rem}
+
+/* Track */
+#track{display:flex;align-items:center;gap:17px;will-change:transform;position:relative;padding-left:clamp(6rem,12vw,14rem);touch-action:none;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
+.card{flex-shrink:0;width:var(--card-w);aspect-ratio:595/842;position:relative;cursor:pointer;will-change:transform,opacity,filter;-webkit-tap-highlight-color:transparent;border-radius:8px;overflow:hidden;z-index:1}
+.card-inner{position:relative;width:100%;height:100%;overflow:hidden;background:#fcfaf5;border:1px solid var(--border);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08),0 1px 3px rgba(0,0,0,0.1);transition:border-color 0.5s ease,box-shadow 0.5s ease}
+.card.active .card-inner{border-color:var(--accent-light);box-shadow:0 4px 28px rgba(107,74,46,0.12),0 0 0 1px rgba(107,74,46,0.15),0 4px 12px rgba(0,0,0,0.15),0 1px 3px rgba(0,0,0,0.1)}
+.card-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.4) 0%,transparent 50%);pointer-events:none;opacity:0;transition:opacity 0.35s ease}
+.card.active .card-overlay{opacity:1}
+.card-number{position:absolute;bottom:0.5rem;left:0.65rem;font-family:'JetBrains Mono',monospace;font-size:clamp(0.4rem,0.45vw,0.5rem);font-weight:500;letter-spacing:0.08em;color:rgba(255,255,255,0.7);pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,0.3)}
+.card.active .card-number{color:#fff}
+.card.active{z-index:10}
+.card:not(.active){opacity:0.7;filter:brightness(0.95) saturate(0.85);transition:opacity 1.8s cubic-bezier(0.22,1,0.36,1),filter 1.8s cubic-bezier(0.22,1,0.36,1),transform 1.8s cubic-bezier(0.22,1,0.36,1)}
+.card:not(.active):hover{opacity:0.9;filter:brightness(1.02) saturate(0.95);transform:scale(1.06)}
+.card:not(.active):hover .card-inner,.card.active:hover .card-inner{box-shadow:0 0 40px rgba(107,74,46,0.2),0 8px 20px rgba(0,0,0,0.12),0 2px 6px rgba(0,0,0,0.08);animation-play-state:paused}
+.card{transform-origin:center center}
+
+/* Grid view */
+#grid-view{position:fixed;inset:0;z-index:4;overflow-y:auto;overflow-x:hidden;display:none;padding:clamp(8rem,14vh,11rem) clamp(1rem,3vw,3rem) clamp(6rem,10vh,8rem);background:var(--bg)}
+#grid-view.open{display:block}
+#card-stage.grid-hidden{display:none}
+#grid-inner{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(0.6rem,1vw,1rem);max-width:1100px;margin:0 auto;padding:0 0.5rem}
+.grid-card{aspect-ratio:595/842;position:relative;cursor:pointer;border-radius:4px;overflow:hidden;border:1px solid var(--border);opacity:0;transform:scale(0.95);transition:opacity 0.3s ease,transform 0.3s ease,box-shadow 0.3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.grid-card.visible{opacity:1;transform:scale(1)}
+.grid-card:hover{box-shadow:0 4px 20px rgba(107,74,46,0.12),0 0 0 1px rgba(107,74,46,0.1),0 6px 16px rgba(0,0,0,0.15);transform:scale(1.05);z-index:5}
+.grid-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.grid-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.5) 0%,transparent 40%);pointer-events:none;opacity:0;transition:opacity 0.3s ease}
+.grid-card:hover .grid-card-overlay{opacity:1}
+.grid-card-num{position:absolute;bottom:0.3rem;left:0.4rem;font-family:'JetBrains Mono',monospace;font-size:clamp(0.35rem,0.4vw,0.45rem);font-weight:500;color:rgba(255,255,255,0.8);pointer-events:none;opacity:0;transition:opacity 0.3s ease}
+.grid-card:hover .grid-card-num{opacity:1}
+#grid-close{position:fixed;top:clamp(3.5rem,6vh,5rem);right:clamp(1.25rem,2.5vw,2.5rem);z-index:55;font-family:'JetBrains Mono',monospace;font-size:clamp(0.5rem,0.6vw,0.6rem);font-weight:500;letter-spacing:0.12em;color:var(--text-dim);background:none;border:1px solid var(--border);cursor:pointer;padding:0.3rem 0.7rem;border-radius:3px;display:none;transition:all 0.25s ease}
+#grid-close:hover{color:var(--accent);border-color:var(--accent)}
+#grid-close.show{display:inline-block}
+
+/* Bottom bar */
+#bottom-bar{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:0 clamp(1.5rem,4vw,4rem) clamp(0.8rem,1.2vh,1.2rem);pointer-events:none;display:block}
+#bottom-bar>*{pointer-events:auto}
+#bottom-bar.hide{display:none}
+#bottom-inner{display:flex;align-items:center;justify-content:center;gap:clamp(0.75rem,1.5vw,1.5rem);max-width:700px;margin:0 auto;flex-wrap:wrap}
+
+.nav-circle{width:clamp(1.8rem,2.2vw,2.2rem);height:clamp(1.8rem,2.2vw,2.2rem);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.08);cursor:pointer;transition:all 0.25s ease;color:rgba(0,0,0,0.45);font-size:clamp(0.7rem,0.9vw,0.85rem);-webkit-tap-highlight-color:transparent;user-select:none}
+.nav-circle:hover{background:rgba(107,74,46,0.06);border-color:rgba(107,74,46,0.2);color:var(--accent)}
+.nav-circle:active{transform:scale(0.9)}
+.nav-circle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* Sayı atlama */
+#jump-wrap{display:flex;align-items:center;gap:0.3rem;flex-shrink:0}
+#jump-input{width:clamp(1.8rem,2.5vw,2.5rem);font-family:'JetBrains Mono',monospace;font-size:clamp(0.55rem,0.7vw,0.65rem);font-weight:500;text-align:center;color:var(--text);background:rgba(0,0,0,0.02);border:1px solid var(--border);border-radius:3px;padding:0.2rem 0;outline:none;transition:border-color 0.2s ease}
+#jump-input:focus{border-color:var(--accent)}
+#jump-input::placeholder{color:var(--text-dim);font-size:clamp(0.4rem,0.5vw,0.5rem)}
+#jump-label{font-family:'JetBrains Mono',monospace;font-size:clamp(0.35rem,0.4vw,0.4rem);font-weight:400;letter-spacing:0.08em;color:var(--text-dim);white-space:nowrap}
+
+.progress-wrap{flex:1;max-width:320px;min-width:100px}
+.progress-track{width:100%;height:2px;background:rgba(0,0,0,0.06);border-radius:2px;position:relative;cursor:pointer;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;width:0%;transition:width 0.4s cubic-bezier(0.16,1,0.3,1)}
+.progress-thumb{position:absolute;top:50%;right:0;width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translate(50%,-50%);box-shadow:0 0 10px rgba(107,74,46,0.15);opacity:0;transition:opacity 0.25s ease}
+.progress-wrap:hover .progress-thumb{opacity:1}
+
+.indexer{font-family:'JetBrains Mono',monospace;font-size:clamp(0.6rem,0.8vw,0.75rem);font-weight:500;color:rgba(0,0,0,0.35);letter-spacing:0.05em;flex-shrink:0;min-width:clamp(3rem,4vw,4rem);text-align:right}
+.indexer span{color:var(--accent);font-weight:600}
+
+/* Modals */
+.modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(22,20,18,0.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:2rem}
+.modal-overlay.open{display:flex}
+.modal-panel{background:var(--bg);border:1px solid var(--border);border-radius:12px;max-width:clamp(20rem,50vw,44rem);width:100%;max-height:90vh;overflow-y:auto;position:relative;padding:clamp(1.5rem,3vw,2.5rem);box-shadow:0 20px 60px rgba(0,0,0,0.08);animation:modalIn 0.35s ease}
+@keyframes modalIn{from{opacity:0;transform:scale(0.96) translateY(10px)}}
+.modal-close{position:absolute;top:1rem;right:1rem;width:2rem;height:2rem;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:1rem;transition:all 0.2s ease}
+.modal-close:hover{color:var(--accent);border-color:var(--accent);background:rgba(107,74,46,0.04)}
+
+/* Hakkımızda modal */
+.hak-modal-title{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2vw,1.8rem);font-weight:600;color:var(--text);margin-bottom:0.25rem}
+.hak-modal-sub{font-family:'JetBrains Mono',monospace;font-size:clamp(0.55rem,0.7vw,0.7rem);font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+.hak-modal-text{font-family:'Inter',sans-serif;font-size:clamp(0.8rem,1vw,0.95rem);line-height:1.7;color:var(--text);margin-bottom:1.5rem;max-width:65ch}
+.hak-staff{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem 1.5rem;margin-top:1rem}
+@media(max-width:480px){.hak-staff{grid-template-columns:1fr}}
+.hak-role{font-family:'JetBrains Mono',monospace;font-size:clamp(0.45rem,0.55vw,0.55rem);font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.15rem}
+.hak-name{font-family:'Inter',sans-serif;font-size:clamp(0.75rem,0.9vw,0.9rem);font-weight:400;color:var(--text)}
+.hak-name strong{font-weight:600}
+.hak-grp{break-inside:avoid;margin-bottom:1rem}
+.hak-grp:last-child{margin-bottom:0}
+.hak-contact{font-family:'JetBrains Mono',monospace;font-size:clamp(0.55rem,0.7vw,0.7rem);color:var(--accent);margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;gap:1.5rem;flex-wrap:wrap}
+.hak-contact a{color:var(--accent);text-decoration:none;transition:opacity 0.2s}
+.hak-contact a:hover{opacity:0.7}
+
+/* PDF modal */
+.pdf-modal-content{max-width:95vw;width:95vw;height:90vh;padding:0;border-radius:8px;overflow:hidden;background:#fff}
+.pdf-modal-content .modal-close{position:fixed;top:1rem;right:1rem;z-index:210;background:rgba(0,0,0,0.06);border-color:rgba(0,0,0,0.1);color:var(--text);width:2.2rem;height:2.2rem}
+.pdf-modal-content .modal-close:hover{background:rgba(107,74,46,0.1);border-color:var(--accent);color:var(--accent)}
+#pdf-frame{width:100%;height:100%;border:none;display:block}
+
+/* Mobile */
+@media(max-width:768px){
+:root{--card-w:clamp(130px,30vw,180px)}
+#main{flex-direction:column;padding-top:3.5rem;padding-bottom:0}
+#card-stage{flex:1;height:auto;min-height:45vh;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:2vh}
+#track{padding-left:clamp(5rem,20vw,8rem)}
+.card{border-radius:6px;margin-right:0}
+.card:not(.active){opacity:0.6;filter:brightness(0.92) saturate(0.8);transition:opacity 1.8s cubic-bezier(0.22,1,0.36,1),filter 1.8s cubic-bezier(0.22,1,0.36,1),transform 1.8s cubic-bezier(0.22,1,0.36,1)}
+.card:not(.active):hover{opacity:0.8;filter:brightness(1) saturate(0.9);transform:scale(1.04)}
+.card:not(.active):hover .card-inner,.card.active:hover .card-inner{box-shadow:0 0 24px rgba(107,74,46,0.12),0 4px 12px rgba(0,0,0,0.1)}
+.card.active .card-inner{box-shadow:0 4px 20px rgba(107,74,46,0.1),0 0 0 1px rgba(107,74,46,0.12),0 2px 8px rgba(0,0,0,0.1)}
+#issue-info{padding:2.2rem 1rem clamp(1.5rem,3vh,2rem)}
+#issue-desc{font-size:clamp(0.8rem,3.5vw,0.95rem);max-width:clamp(16rem,55vw,24rem)}
+#issue-number{font-size:clamp(0.7rem,3vw,0.85rem)}
+.nav-circle{width:2.2rem;height:2.2rem;font-size:0.65rem}
+#jump-input{width:2rem}
+#jump-label{font-size:0.35rem}
+.progress-wrap{max-width:160px}
+.indexer{min-width:2.5rem;font-size:0.5rem}
+#header-nav{gap:0.1rem}
+.hdr-btn{font-size:0.5rem;padding:0.2rem 0.35rem}
+#btn-grid-toggle{font-size:clamp(0.45rem,0.55vw,0.6rem);padding:0.2rem 0.45rem}
+#grid-inner{grid-template-columns:repeat(4,1fr);gap:clamp(0.4rem,0.8vw,0.8rem)}
+}
+@media(max-width:480px){
+#card-stage{min-height:40vh;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:1vh}
+#track{padding-left:clamp(4rem,22vw,6rem)}
+.card:not(.active){opacity:0.6;filter:brightness(0.92) saturate(0.8);transition:opacity 1.8s cubic-bezier(0.22,1,0.36,1),filter 1.8s cubic-bezier(0.22,1,0.36,1),transform 1.8s cubic-bezier(0.22,1,0.36,1)}
+.card:not(.active):hover{opacity:0.8;filter:brightness(1) saturate(0.9);transform:scale(1.04)}
+.card:not(.active):hover .card-inner,.card.active:hover .card-inner{box-shadow:0 0 20px rgba(107,74,46,0.1),0 4px 10px rgba(0,0,0,0.1)}
+.card.active .card-inner{box-shadow:0 4px 16px rgba(107,74,46,0.08),0 0 0 1px rgba(107,74,46,0.1),0 2px 6px rgba(0,0,0,0.08)}
+#issue-info{padding:1.8rem 0.75rem clamp(1.2rem,3vh,2rem)}
+#issue-desc{font-size:clamp(0.75rem,4vw,0.85rem)}
+#issue-number{font-size:clamp(0.65rem,3.5vw,0.75rem)}
+#bottom-inner{flex-wrap:wrap;gap:0.4rem;justify-content:center}
+.nav-arrows{order:0}
+#jump-wrap{order:1}
+.progress-wrap{order:2;flex:1 1 100%;max-width:100%}
+.indexer{order:3;min-width:auto}
+#grid-inner{grid-template-columns:repeat(3,1fr);gap:0.5rem}
+#header-nav{gap:0.05rem}
+.hdr-btn{font-size:0.45rem;padding:0.15rem 0.25rem}
+#btn-grid-toggle{font-size:clamp(0.4rem,0.5vw,0.5rem);padding:0.15rem 0.35rem}
+#bottom-bar.hide{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+.card,.card-inner,.card.active .card-inner,.bg-layer{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<svg class="grain-overlay" aria-hidden="true"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg>
+
+<div id="kagit-bg"></div>
+<div class="bg-layer" id="bg-layer"></div>
+<div id="top-blur"></div>
+
+<!-- Süsleme motifi — çini esintili geometrik desen -->
+<svg id="ornament" viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="0.5" aria-hidden="true">
+<circle cx="50" cy="50" r="48" opacity="0.5"/>
+<circle cx="50" cy="50" r="38" opacity="0.4"/>
+<circle cx="50" cy="50" r="28" opacity="0.3"/>
+<circle cx="50" cy="50" r="16" opacity="0.2"/>
+<line x1="2" y1="50" x2="98" y2="50" opacity="0.3"/>
+<line x1="50" y1="2" x2="50" y2="98" opacity="0.3"/>
+<line x1="16" y1="16" x2="84" y2="84" opacity="0.2"/>
+<line x1="84" y1="16" x2="16" y2="84" opacity="0.2"/>
+</svg>
+
+<div id="app">
+<header id="header">
+<div id="header-left">
+<nav id="header-nav">
+<button class="hdr-btn" id="btn-hakkimizda">Hakkımızda</button>
+<button id="btn-grid-toggle">Grid</button>
+</nav>
+</div>
+<div id="header-center">
+<a id="logo-wrap" href="#" aria-label="Küpeşte">
+<img id="logo-img" src="Küpeşte/kupeste.png" alt="Küpeşte" draggable="false">
+<div id="logo-sub">EDEBİYAT, SANAT VE KÜLTÜR DERGİSİ</div>
+</a>
+</div>
+<div id="header-right">
+<a id="insta" href="https://www.instagram.com/kupestedergi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+<span>IG</span>
+</a>
+</div>
+</header>
+
+<div id="main">
+
+<div id="card-stage">
+<div id="track"></div>
+<div id="issue-info">
+<div id="issue-divider"></div>
+<div id="issue-number"></div>
+<div id="issue-desc"></div>
+<div id="share-buttons">
+<button class="share-btn" id="share-whatsapp" aria-label="WhatsApp'ta paylaş"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9z"/><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></svg></button>
+<button class="share-btn" id="share-copy" aria-label="Bağlantıyı kopyala"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"/></svg></button>
+</div>
+<a id="issue-pdf-btn" href="#" target="_blank" rel="noopener noreferrer">
+<span>SAYIYI OKU</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+</a>
+</div>
+</div>
+
+<!-- Grid View -->
+<div id="grid-view"><div id="grid-inner"></div></div>
+<button id="grid-close">Kapat</button>
+
+<div id="bottom-bar">
+<div id="bottom-inner">
+<div class="nav-arrows" style="display:flex;gap:0.3rem;flex-shrink:0">
+<button class="nav-circle" id="btn-prev" aria-label="Önceki sayı">&#10094;</button>
+<button class="nav-circle" id="btn-next" aria-label="Sonraki sayı">&#10095;</button>
+</div>
+<div id="jump-wrap">
+<span id="jump-label">SAYI</span>
+<input type="text" id="jump-input" placeholder="##" inputmode="numeric" maxlength="2" aria-label="Sayı numarası gir">
+</div>
+<div class="progress-wrap">
+<div class="progress-track" id="progress-track">
+<div class="progress-fill" id="progress-fill"></div>
+<div class="progress-thumb" id="progress-thumb"></div>
+</div>
+</div>
+<div class="indexer"><span id="indexer-current">54</span> / 54</div>
+</div>
+</div>
+</div>
+
+<!-- Hakkımızda Modal -->
+<div class="modal-overlay" id="hakkimizda-modal">
+<div class="modal-panel">
+<button class="modal-close" id="hakkimizda-close" aria-label="Kapat">&#10005;</button>
+<div class="hak-modal-title">Küpeşte</div>
+<div class="hak-modal-sub">Edebiyat Sanat ve Kültür Dergisi</div>
+<div class="hak-modal-text">
+Küpeşte, kültür ve edebiyat dünyasına kaleme ve kitaba tutunanların sesi olmak için yola çıkmış bir dergidir. Bugüne kadar 54 sayı yayımlayan Küpeşte, her sayısında farklı bir temayı işleyerek şiir, öykü, deneme, inceleme ve söyleşi türlerinde okurlarına zengin bir içerik sunmaktadır. İlk sayısında "Merhaba!" diyerek başladığı yolculuğuna, edebiyatın iyileştirici gücüne inanarak devam etmektedir.
+</div>
+
+<div class="hak-staff">
+<div class="hak-grp">
+<div class="hak-role">Genel Yayın Yönetmeni</div>
+<div class="hak-name">Hanife Artar Yalçın</div>
+</div>
+<div class="hak-grp">
+<div class="hak-role">Yazı İşleri Sorumlusu</div>
+<div class="hak-name">Reyhan Karakabak Yılmaz</div>
+</div>
+<div class="hak-grp">
+<div class="hak-role">Editörler</div>
+<div class="hak-name">Demet Yıldız<br>Reyhan Karakabak Yılmaz<br>Esma Beyza Güleç<br>Hanife Artar Yalçın</div>
+</div>
+<div class="hak-grp">
+<div class="hak-role">Yazarlar</div>
+<div class="hak-name">Esma Beyza Güleç<br>Demet Yıldız<br>Nazife Yalçın Selçuk<br>Hanife Artar Yalçın<br>Serpil Özlem Uçar<br>Aslıhan Göksu</div>
+</div>
+<div class="hak-grp">
+<div class="hak-role">Misafir Yazarlar</div>
+<div class="hak-name">Mehmet Ayhan<br>Eda Nur Bişken<br>Nezahat Yüce<br>Çiğdem Yılmaz<br>Yasemin Şahin<br>Betül İzgöer Öztürk<br>Mehmet Dedeoğlu<br>Ayşe Saliha Emon</div>
+</div>
+<div class="hak-grp">
+<div class="hak-role">Grafik ve Mizanpaj</div>
+<div class="hak-name">Fatma Nur Özdemir</div>
+</div>
+<div class="hak-grp">
+<div class="hak-role">Sosyal Medya</div>
+<div class="hak-name">Hanife Artar Yalçın</div>
+</div>
+</div>
+
+<div class="hak-contact">
+<a href="mailto:bilgi@kupestedergi.com">bilgi@kupestedergi.com</a>
+<a href="https://www.instagram.com/kupestedergi/" target="_blank">@kupestedergi</a>
+</div>
+</div>
+</div>
+
+<!-- PDF Reader Modal -->
+<div class="modal-overlay" id="pdf-modal">
+<div class="modal-panel pdf-modal-content">
+<button class="modal-close" id="pdf-modal-close" aria-label="Kapat">&#10005;</button>
+<iframe id="pdf-frame" src="" title="PDF Okuyucu"></iframe>
+</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function(){
+'use strict';
+
+var TOTAL = 54;
+var current = 0;
+var animating = false;
+var currentTrackX = 0;
+var dragState = null;
+var wasDragged = false;
+var dragPointerId = null;
+var gridOpen = false;
+
+// DOM refs
+var bgLayer = document.getElementById('bg-layer');
+var track = document.getElementById('track');
+var issueNumber = document.getElementById('issue-number');
+var issueDesc = document.getElementById('issue-desc');
+var issuePdfBtn = document.getElementById('issue-pdf-btn');
+var progressFill = document.getElementById('progress-fill');
+var progressThumb = document.getElementById('progress-thumb');
+var progressTrack = document.getElementById('progress-track');
+var indexerCurrent = document.getElementById('indexer-current');
+var gridView = document.getElementById('grid-view');
+var gridInner = document.getElementById('grid-inner');
+var gridClose = document.getElementById('grid-close');
+var gridToggle = document.getElementById('btn-grid-toggle');
+var shareButtons = document.getElementById('share-buttons');
+var jumpInput = document.getElementById('jump-input');
+var hakModal = document.getElementById('hakkimizda-modal');
+var pdfModal = document.getElementById('pdf-modal');
+var pdfFrame = document.getElementById('pdf-frame');
+var pdfModalClose = document.getElementById('pdf-modal-close');
+
+// Issue themes
+var issueThemes = [
+"54. sayının teması: Esaret. Yaşarken fark edemediğimiz, başkasının sözüyle gördüğümüz esaret halleri. Bazen kendimize kendimizi esir ederiz. Esir şehirler, esir kalpler ve esaretten kurtuluşun, hürriyetin sancılı yolculuğu üzerine bir sayı.",
+"53. sayının teması: Kalem. 'Kalemle yazmayı öğreten O'dur' ayetinden ilhamla, kaleme ve kitaba tutunanların kalemin peşinde yolculuğu. Kimi zaman bir minare, kimi zaman bir bebeğin işaret parmağı olan kalemin kadim hikâyesi.",
+"52. sayının teması: Gençlik. Beşinci yaşını kutlayan Küpeşte'de, dört bin yıldır 'Bu gençlik nereye gidiyor?' sitemine inat, gençliği bir imkân, bir hazine olarak ele alış. Gençlik bir akarsu gibi geçmişi âna bağlayarak geleceği besler.",
+"51. sayının teması: Yetişmek / Yetişememek. Doğumdan mezara koşuşturmayla geçen ömür; okula, işe, nikâha, cenazeye yetişme telaşı. Mükemmeliyetçilik ile yavaşlamak arasında dengeyi bulmak ve nasibimiz kadar koşabilmek üzerine.",
+"50. sayının teması: Elli Sayı / Yeniden Merhaba. Hastalıklar, vefatlar, yas süreci derken açtığımız kapalı perde. Nice konuya, hayale, kalemin sesine şahitlik ettiğimiz elli ayın ardından yeniden Bismillah deyişimiz.",
+"49. sayının teması: Hayvan Sevgisi. Yaratılanı sev, Yaratan'dan ötürü. İnsan kadar hayvanlara duyulan sevgi de insanî. Şiddetin arttığı şu günlerde merhameti çoğaltmak, iyilikten yana olmak adına hayvanlara uzanan bir sayı.",
+"48. sayının teması: Çiçek. Şiirlerin, şarkıların, sevgililerin anlam yüklü metaforu çiçekler. Gül, yasemin, leylak, nergis... Her biri bir duygunun tercümanı, her biri bir hatıranın canlı şahidi. Sayfalarımızda çiçek rayihaları.",
+"47. sayının teması: Kitap. Pandemi günlerinde sımsıkı tutunduğumuz kitaplar, 'Kaleme ve Kitaba Tutunanlara' düsturumuz. Gazzeli kardeşlerimizin tarihin en can yakıcı satırlarını yazarken tutundukları kitaplar ve bizim tutunduklarımız.",
+"46. sayının teması: Pencere. İki pencere arasında geçen fani ömür; doğarken merakla açılan, ölürken sevgiliye kavuşma sevinciyle kapanan. Her birimiz farklı pencerelerden selamlıyoruz dünyayı ve birbirimizi.",
+"45. sayının teması: Pişmanlık. Dağdan kopup gelen kar tanesi misali sürüklenirken yaşadığımız pişmanlıklar. Kimi fırsata çeviren, kimi yakasını kurtaramayan. İnsan olduğumuz için düştüğümüz bu imtihanın en az hasarla üstesinden gelmek.",
+"44. sayının teması: Kapı. Nisanda kapıları konuşturduk; gönül kapısı, dua kapısı, el kapısı... Kimi ardına kadar açık, kimi duvar misali. Filistin'e hayırlı kapılar, zalimlere sonsuza kadar kapalı kapılar dileyerek.",
+"43. sayının teması: Özgürlük. Mart ayında, her türlü kayıttan azade olma hasreti. Gazzelilerin direnişinden ilhamla, özgürlüğün aslında günlük dertlerimiz olduğunu hatırlamak. En güzel özgürlük kuşları Filistin semalarında kanat çırpana dek.",
+"42. sayının teması: Zaman. Akrep ve yelkovanla yarışan insanın bitmeyen telaşı. Duvar saati, kol saati, telefon alarmı derken yetişemediğimiz bir ömür. Zamanı durdurup Gazze'de unutulan çocukların güzel günlerini geri getirme duası.",
+"41. sayının teması: Ev. İki harften ibaret ama kâinat kadar anlam barındıran bir kelime: Ev. Aşkıyla yananlar için Kâbe, yazarak nefes alanlar için kalem ve kağıt, mazlumlar için bir çadır. Aslolan ruhun huzurlu olduğu yer.",
+"40. sayının teması: Değişim. İnsanın küçük dünyasında bir damla suyla başlayıp bir avuç toprakla biten yolculuk. Her an, her nefeste yaşadığımız dönüşüm ve değişmeyen tek şey olan umut üzerine bir sayı.",
+"39. sayının teması: Filistin. Kabil'den bu yana dökülen kardeş kanına karşı kalemle tarihe not düşmek. Gazze'de yaşanan soykırıma kelimelerimizle 'Yeter!' demek ve zeytin ağaçlarının yerine umut dikmek.",
+"38. sayının teması: Polisiye. Ekim ayında edebiyatın en heyecanlı türlerinden polisiyeye mercek tuttuk. Ahmet Mithat'tan Ahmet Ümit'e, Agatha Christie'den Umberto Eco'ya uzanan bir cinayetler ve sırlar yolculuğu.",
+"37. sayının teması: Eğitim. Sonbaharla başlayan okul telaşında, beşikten mezara devam eden öğrenme yolculuğu. Okul sadece dört duvar değil; bakmasını, görmesini, öğrenmesini bilene her yer okul.",
+"36. sayının teması: Bozkır. Neşet Ertaş türküleriyle süslenmiş, bozkır kokan sayfalar. Kalemiyle, türküsüyle, kamerasıyla o toprakları yaşatmış ustalardan ilhamla hazırlanmış bir sayı. Bozkırın sessiz çığlığı.",
+"35. sayının teması: Kadın. Hayatın uzun cümlesinde çoğunlukla gizli özne olan kadın; doğuran, çalışan, üreten, şiddete maruz kalan, kıymeti bilinen ellerde çiçek açan. Eski Türklerden günümüze kadının hak ettiği saygınlık.",
+"34. sayının teması: Çocuk Edebiyatı. Okullar tatile girerken çocuk cıvıltılarıyla dolan sayfalarımız. Mevlâna İdris'in hatırasına, çocuk kaleminin saflığına, hayal gücünün sınırsızlığına açılan bir pencere.",
+"33. sayının teması: Mizah. Rıfat Ilgaz'ın dediği gibi mizah bir tür değil, mizaçtan gelen bir çeşni; güldürürken düşündüren, hicvederken inceltmeyen bir üslup. Baharın son günlerinde edebiyatın güldüren yüzü.",
+"32. sayının teması: İhsan. Allah'ı görüyormuşçasına yaşamak, her an O'nun huzurunda olduğunu bilmenin bilinci. Güzel ahlakın, samimiyetin ve en güzel şekilde kul olmanın sırrı üzerine bir sayı.",
+"31. sayının teması: Seher. Gecenin en karanlık anında doğan aydınlık, imsak vaktinde içilen ilk yudum su, seher yeliyle gelen ferahlık. Uykudan uyanıp Hakka yönelen gönüllerin huzuru.",
+"30. sayının teması: Takva. Ramazanın gölgesinde nefsi terbiye, kalbi arındırma gayreti. Görünenden öteye, zahirden batına yolculuk ve Allah'a yakınlaşmanın en samimi hali.",
+"29. sayının teması: Dua. Yeni yıla girerken eller semaya yükselir. Her derdin dermanı, her kapının anahtarı, her sıkıntının ilacı olan dua. Gece yarısı gözyaşıyla ıslanan seccâdelerde yankılanan o sessiz çığlık.",
+"28. sayının teması: Kış. Aralık soğuğunda sobaya yaslanıp dinlenen masallar, karla kaplanmış sessizlikte duyulan iç ses. Beyazın saflığında kaybolup yeniden doğmak üzerine bir sayı.",
+"27. sayının teması: Hz. Mevlâna ve Vuslat. Kasımın hüznünde, Şeb-i Arus'u anarken ölümün aslında bir düğün gecesi olduğunu idrak etmek. 'Biz ayrılık gününde öldük diye üzülme, vuslat günüdür bu' diyen çağrı.",
+"26. sayının teması: İyilik. Ekim yaprakları dökülürken yeşeren iyilik tohumları. Görünmez elçiler gibi dolaşan sadakalar, gizlice yapılan dualar, karşılık beklemeyen yardımlar ve iyiliğin sarmaladığı bir dünya.",
+"25. sayının teması: Şehir. Eylül ve İstanbul, Kudüs, Mekke, Edirne... Her şehrin kendine has bir ruhu, bir kokusu, bir hikâyesi vardır. Beton yığınları arasında kaybolan kadim şehir kimliğine dair satırlar.",
+"24. sayının teması: Medeniyet. Ağustosta gölgesine sığındığımız kadim şehirler, taşın toprağın konuştuğu mimariler. İnsanı insan yapan o büyük miras ve kültür birikimi üzerine.",
+"23. sayının teması: Rüya. Temmuz gecelerinde yıldızların altında kurulan hayaller. Uyanıkken görülen düşler, uykuda ziyaret edilen alemler ve hakikatle hayal arasında salınan bir sayı.",
+"22. sayının teması: Gurbet. Haziran sıcağında vatan hasretiyle yanan gönüller. Uzak diyarlara düşen yollar, memleket özlemiyle yoğrulmuş satırlar ve her gurbetlinin yüreğinde taşıdığı o derin sızı.",
+"21. sayının teması: Güzellik. Mayısın getirdiği çiçeklerle bezenmiş bir âlemde, gözümüze ilişen her güzelde Yaradan'ın izini sürmek. İnsanda, tabiatta, sanatta tecelli eden o eşsiz cemal.",
+"20. sayının teması: Kardeşlik. Nisanla yeşeren bağlar, aynı anneden doğmuşçasına birbirine kenetlenen gönüller. Kan bağından öte ruh akrabalığı; omuz omuza birlik olmanın bereketi.",
+"19. sayının teması: İmtihan. Hayatın her anında karşımıza çıkan o ince sınav; sabırla şükrün, acıyla sevincin iç içe geçtiği dünya imtihanı. Her zorlukla birlikte gelen kolaylık üzerine bir sayı.",
+"18. sayının teması: Söz. Ocak ayazında ağızdan çıkan her kelimenin ağırlığı. Söz vermek, sözünde durmak, susmak ve konuşmak arasındaki ince çizgi. Kalemin ucunda titreyen o kıymetli emanet.",
+"17. sayının teması: Ümit. Yılın son gününde, karanlığın en derin anında doğacak ışığa inanç. İçimizde hiç sönmeyen o küçük ateş; zorluklar karşısında dimdik ayakta tutan umudun hasbî hali.",
+"16. sayının teması: Hatıra. Kışın ilk soğuğunda albüm sayfalarını aralarken canlanan eski fotoğraflar. Çocukluğun o sıcak anıları, ninelerin masalları, dedelerin nasihati ve hafızamızda taze kalan silinmez izler.",
+"15. sayının teması: Vefa. Kasım rüzgârında savrulurken geçmişe uzanan minnet dolu eller. Bir fincan kahvenin kırk yıllık hatırı, eski dostluklar, unutulmayan dualar ve vefanın edeple yoğrulmuş hali.",
+"14. sayının teması: İz. Tarihe düşülen notlar, peşimizden gelen gölgeler, geride bıraktığımız ayak izleri. Birinci yılını dolduran dergimizde, iz bırakan şahsiyetler ve silinmeyen hatıralar üzerine.",
+"13. sayının teması: Dönüş. Eylülle birlikte başlayan dönüşler; yazdan şehre, yollardan evlere, dağınıklıktan düzene. Leyleklerin gidişiyle hüzünlenen, okul zilleriyle heyecanlanan kalplerin mevsimi.",
+"12. sayının teması: Hasat. Yaz ortasında emeklerin meyveye durduğu, alın terinin karşılık bulduğu an. Tarladan sofraya, kalemden sayfaya uzanan bereket zincirinde toplanan mahsulün öyküsü.",
+"11. sayının teması: Yolculuk. Yaza uzanırken yollara düşen gönüller; her yolculuk bir iç yolculuktur aslında. Bavullarda taşınan anılar, ufuk çizgisinde kaybolan hayaller ve varılan her menzilde kendini bulmak.",
+"10. sayının teması: Bayram Sevinci. Sevincin gözlere yansıdığı, kırgınlıkların unutulduğu, küçük ellerin öpüldüğü o mübarek gün. Bayramlık heyecanıyla çocuklaşan gönüllerin şenliği.",
+"9. sayının teması: Ramazan İklimi. Oruçla arınan bedenler, huşuyla eğilen başlar, iftarda birleşen sofralar. On bir ayın sultanının gölgesinde, sabır ve şükür arasında salınan nefeslerin hikâyesi.",
+"8. sayının teması: Nisan Yağmurları. Rahmetle inen her damlanın toprakta can buluşu gibi, kelimelerin kalplerde filizlenişi. Arınmanın, temizlenmenin ve bereketin müjdecisi yağmur altında bir sayı.",
+"7. sayının teması: Bahar. Martla birlikte gelen tazeleniş; dallarda tomurcuk, toprakta yeşil, gökte kuşlarla yeniden uyanan dünya. İçimizde solan ne varsa yeniden çiçek açma vaktidir.",
+"6. sayının teması: Merhamet. Şubat soğuğunda yürekleri ısıtan o ince sızı; insanın insana, hayvana, tabiata uzanan şefkat eli. Acıyı dindiren, yarayı saran, gözyaşını silen merhamet ikliminde bir yolculuk.",
+"5. sayının teması: Yeniden Doğuş. Kışın ortasında, yeni bir yıla girerken toprağın altında yeşermeyi bekleyen tohum gibi; ümitle beklenen dirilişin, yenilenmenin ve sıfırdan başlamanın bereketi üzerine bir sayı.",
+"4. sayının teması: Hesap ve Tövbe. Kızgınlığın, öfkenin ve hüznün tellerini titreten hayat karşısında secdeye varıp yüzünü O'na dönenlerin muhasebesi. La ile başlayan yolculukta, yok'luğunla var olduğun o son hesap.",
+"3. sayının teması: Uyanış. Dünya dönerken yarım kalmışlıklarımızla başladığımız her yeni uyanış, azala azala tükenen ruhumuz. Serçe gibi bir 'hiç'le başlayabilmek ve nâtamam cümlelerimizi tamamlamak vaktidir.",
+"2. sayının teması: Menzil. Ruhumuzun seyir terasından baktığımızda gördüğümüz o uzak diyar; hayatın zorluklarında kaybolmuşken içimizde yankılanan 'ben buradayım' sesi. Menzilimize ermek üzerine.",
+"1. sayının teması: Başlangıç. Kaleme ve kitaba tutunanların ilk adımı. Hayatın kaygan zemininde düşme korkusuna inat, sımsıkı tutunduğumuz küpeşteyle yola çıkışın hikâyesi. Bir avuç sanat, kültür ve edebiyat sevdalısı olarak 'Merhaba!' deyişimiz."
+];
+
+function pad(n){return n<10?'0'+n:''+n}
+function getRealIssueNum(i){return TOTAL-i}
+function getCoverPath(i){return 'K\u00fcpe\u015fte/kapak/sayi'+pad(getRealIssueNum(i))+'.jpg'}
+function getPdfPath(i){return 'K\u00fcpe\u015fte/sayilar/Kupeste_dergi_Sayi_'+pad(getRealIssueNum(i))+'.pdf'}
+function getDescription(i){return issueThemes[i]}
+function getTheme(i){var t=issueThemes[i],c=t.indexOf(':');return c>0?t.substring(c+1).trim():''}
+function getTitle(i){var t=issueThemes[i],c=t.indexOf(':');return c>0?t.substring(0,c).trim():'Say\u0131 '+getRealIssueNum(i)}
+
+function getThemeHue(i){
+	var title=getTitle(i)+'Kupeste2026';
+	var hash=0;
+	for(var j=0;j<title.length;j++){hash=title.charCodeAt(j)+((hash<<5)-hash);hash=hash&hash}
+	return Math.abs(hash)%80+20;
+}
+
+function applyBgColor(idx){
+	var hue=getThemeHue(idx);
+	bgLayer.style.background='radial-gradient(ellipse 100% 50% at 50% 0%,hsla('+hue+',30%,75%,0.4),transparent),radial-gradient(ellipse 60% 70% at 80% 100%,hsla('+((hue+50)%360)+',25%,70%,0.3),transparent),radial-gradient(ellipse 80% 60% at 20% 50%,hsla('+((hue+100)%360)+',20%,65%,0.2),transparent)';
+}
+
+
+function buildCards(){
+for(var i=0;i<TOTAL;i++){
+var card=document.createElement('div');
+var isNew=i===0;
+card.className='card'+(i===current?' active':'')+(isNew?' card-new':'');
+card.dataset.index=i;
+var badge=isNew?'<span class="yeni-badge">YEN\u0130</span>':'';
+card.innerHTML='<div class="card-inner">'+badge+'<img class="card-cover" src="'+getCoverPath(i)+'" alt="Küpeşte '+getRealIssueNum(i)+'. sayı" loading="lazy" draggable="false"><div class="card-overlay"></div><div class="card-number">SAYI: '+pad(getRealIssueNum(i))+'</div></div>';
+card.addEventListener('click',function(){
+if(wasDragged){wasDragged=false;return;}
+var idx=parseInt(this.dataset.index);
+openPdfReader(getPdfPath(idx));
+});
+track.appendChild(card);
+}
+}
+
+function updateInfo(){
+var ri=getRealIssueNum(current);
+var theme=getTheme(current);
+issueNumber.textContent=ri+'. say\u0131';
+issueDesc.textContent=theme;
+issuePdfBtn.href=getPdfPath(current);
+}
+
+function updateMeta(){
+var ri=getRealIssueNum(current);
+indexerCurrent.textContent=ri;
+var pct=current/(TOTAL-1)*100;
+progressFill.style.width=pct+'%';
+}
+
+function updateActiveCard(){
+var cards=track.children;
+for(var i=0;i<cards.length;i++)cards[i].classList.toggle('active',i===current);
+}
+
+function getCardPitch(){
+if(!track.children.length)return 160;
+var card=track.children[0];
+var w=card.offsetWidth;
+var style=getComputedStyle(track);
+var gap=parseFloat(style.gap)||0;
+return w+gap;
+}
+
+function centerTrack(instant){
+var stage=document.getElementById('card-stage');
+if(!stage||!track.children.length)return;
+var pitch=getCardPitch();
+var stageW=stage.offsetWidth;
+var cardW=track.children[0].offsetWidth;
+var pad=parseFloat(getComputedStyle(track).paddingLeft)||0;
+var tx=stageW/2-cardW/2-pad-current*pitch;
+currentTrackX=tx;
+if(instant)gsap.set(track,{x:tx});
+else gsap.to(track,{x:tx,duration:0.65,ease:'power3.out',overwrite:'auto'});
+}
+
+function goTo(target){
+if(animating)return;
+if(target<0)target=TOTAL-1;
+if(target>=TOTAL)target=0;
+if(target===current)return;
+animating=true;
+
+for(var i=0;i<track.children.length;i++){
+gsap.killTweensOf(track.children[i]);
+track.children[i].style.transform='';
+}
+gsap.killTweensOf(track);
+track.style.transform='';
+gsap.killTweensOf([issueNumber,issueDesc]);
+issueNumber.style.transform='';
+issueNumber.style.opacity='';
+issueDesc.style.transform='';
+issueDesc.style.opacity='';
+
+var oldIdx=current;
+current=target;
+
+updateActiveCard();
+
+var cards=track.children;
+var oldActive=cards[oldIdx];
+var newActive=cards[current];
+
+updateInfo();
+updateMeta();
+applyBgColor(current);
+
+var stage=document.getElementById('card-stage');
+var pitch=getCardPitch();
+var stageW=stage?stage.offsetWidth:window.innerWidth;
+var cardW=cards[0]?cards[0].offsetWidth:pitch;
+var pad=parseFloat(getComputedStyle(track).paddingLeft)||0;
+var tx=stageW/2-cardW/2-pad-current*pitch;
+currentTrackX=tx;
+
+var tl=gsap.timeline({onComplete:function(){animating=false;if(oldActive&&oldActive!==newActive)gsap.set(oldActive,{clearProps:'transform'});}});
+
+tl.to(track,{x:tx,duration:0.65,ease:'power3.out'},0);
+if(oldActive && oldActive!==newActive){
+tl.to(oldActive,{scale:1,duration:0.3,ease:'power2.in'},0);
+}
+if(newActive){
+tl.to(newActive,{scale:1.35,duration:0.6,ease:'back.out(1.5)'},0.06);
+}
+issueNumber.textContent=getRealIssueNum(current)+'. say\u0131';
+var theme=getTheme(current);
+issueDesc.textContent=theme;
+tl.fromTo([issueNumber,issueDesc],{y:-12,opacity:0},{y:0,opacity:1,duration:0.35,ease:'power2.out',stagger:0.04},0.15);
+
+// Update share + hash
+updateShareButtons();
+updateHash();
+}
+
+function goNext(){goTo(current+1)}
+function goPrev(){goTo(current-1)}
+
+function fastGo(target){
+for(var i=0;i<track.children.length;i++){
+gsap.killTweensOf(track.children[i]);
+track.children[i].style.transform='';
+}
+gsap.killTweensOf(track);
+track.style.transform='';
+gsap.killTweensOf([issueNumber,issueDesc]);
+issueNumber.style.transform='';
+issueNumber.style.opacity='1';
+issueDesc.style.transform='';
+issueDesc.style.opacity='1';
+
+current=target;
+updateActiveCard();
+updateInfo();
+updateMeta();
+applyBgColor(current);
+
+var stage=document.getElementById('card-stage');
+if(stage&&track.children.length){
+var pitch=getCardPitch();
+var stageW=stage.offsetWidth;
+var cardW=track.children[0].offsetWidth;
+var pad=parseFloat(getComputedStyle(track).paddingLeft)||0;
+var tx=stageW/2-cardW/2-pad-current*pitch;
+currentTrackX=tx;
+track.style.transform='translateX('+tx+'px)';
+}
+track.children[current].style.transform='scale(1.35)';
+}
+
+// Wheel
+var wheelTimer;
+function setupWheel(){
+window.addEventListener('wheel',function(e){
+if(gridOpen)return;
+if(Math.abs(e.deltaY)<10)return;
+if(wheelTimer)return;
+wheelTimer=true;
+if(e.deltaY>0)goNext();
+else goPrev();
+setTimeout(function(){wheelTimer=false;},300);
+},{passive:true});
+}
+
+// Drag
+function setupDrag(){
+var setTrackX=gsap.quickSetter(track,'x','px');
+track.addEventListener('pointerdown',function(e){
+if(dragPointerId!==null)return;
+if(animating){
+for(var i=0;i<track.children.length;i++){gsap.killTweensOf(track.children[i]);track.children[i].style.transform='';}
+gsap.killTweensOf(track);
+gsap.killTweensOf([issueNumber,issueDesc]);
+animating=false;
+currentTrackX=gsap.getProperty(track,'x');
+track.style.transform='translateX('+currentTrackX+'px)';
+}
+wasDragged=false;
+dragPointerId=e.pointerId;
+dragState={startX:e.clientX,startTrackX:currentTrackX,latestDx:0};
+});
+document.addEventListener('pointermove',function(e){
+if(dragPointerId===null||e.pointerId!==dragPointerId||!dragState)return;
+var dx=e.clientX-dragState.startX;
+if(Math.abs(dx)>5)wasDragged=true;
+dragState.latestDx=dx;
+setTrackX(dragState.startTrackX+dx);
+});
+document.addEventListener('pointerup',function(e){
+if(dragPointerId===null||e.pointerId!==dragPointerId)return;
+dragPointerId=null;
+if(!dragState)return;
+var ds=dragState;
+dragState=null;
+if(!wasDragged)return;
+var tx=ds.startTrackX+ds.latestDx;
+var pitch=getCardPitch();
+var stage=document.getElementById('card-stage');
+var stageW=stage?stage.offsetWidth:window.innerWidth;
+var cardW=track.children[0]?track.children[0].offsetWidth:pitch;
+var pad=parseFloat(getComputedStyle(track).paddingLeft)||0;
+var idx=Math.round((stageW/2-cardW/2-pad-tx)/pitch);
+idx=Math.max(0,Math.min(TOTAL-1,idx));
+gsap.set(track,{x:tx});
+currentTrackX=tx;
+if(idx===current){centerTrack(false);return;}
+goTo(idx);
+});
+document.addEventListener('pointercancel',function(e){
+if(dragPointerId===null||e.pointerId!==dragPointerId)return;
+dragPointerId=null;
+dragState=null;
+centerTrack(false);
+});
+}
+
+// Keyboard
+function setupKeyboard(){
+window.addEventListener('keydown',function(e){
+if(gridOpen)return;
+var dir=0;
+var k=e.key;
+if(k==='ArrowRight'||k==='ArrowDown'||k===' '||k==='Spacebar')dir=1;
+else if(k==='ArrowLeft'||k==='ArrowUp')dir=-1;
+if(dir===0)return;
+e.preventDefault();
+
+for(var i=0;i<track.children.length;i++)gsap.killTweensOf(track.children[i]);
+gsap.killTweensOf(track);
+gsap.killTweensOf([issueNumber,issueDesc]);
+animating=false;
+
+var target=current+dir;
+if(target<0)target=TOTAL-1;
+if(target>=TOTAL)target=0;
+
+if(e.repeat)fastGo(target);
+else goTo(target);
+});
+}
+
+// Buttons
+function setupButtons(){
+document.getElementById('btn-prev').addEventListener('click',goPrev);
+document.getElementById('btn-next').addEventListener('click',goNext);
+}
+
+// Progress bar
+function setupProgress(){
+progressTrack.addEventListener('click',function(e){
+var rect=this.getBoundingClientRect();
+var pct=(e.clientX-rect.left)/rect.width;
+var idx=Math.round(pct*(TOTAL-1));
+idx=Math.max(0,Math.min(TOTAL-1,idx));
+goTo(idx);
+});
+}
+
+// Resize
+function setupResize(){
+var rt;
+window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){centerTrack(true);},100);});
+}
+
+// Preload
+function preloadCovers(){
+for(var i=0;i<TOTAL;i++){var img=new Image();img.src=getCoverPath(i);}
+}
+
+// Hover effects
+function setupHoverEffects(){
+for(var i=0;i<track.children.length;i++){
+(function(card){
+card.addEventListener('pointerenter',function(){
+if(this.classList.contains('active')){
+gsap.to(this,{scale:1.42,duration:0.6,ease:'power2.out',overwrite:'auto'});
+}
+});
+card.addEventListener('pointerleave',function(){
+if(this.classList.contains('active')){
+gsap.to(this,{scale:1.35,duration:0.6,ease:'power2.out',overwrite:'auto'});
+}
+});
+})(track.children[i]);
+}
+}
+
+// Cursor glow
+function setupCardGlow(){
+for(var i=0;i<track.children.length;i++){
+(function(card){
+var inner=card.querySelector('.card-inner');
+card.addEventListener('pointermove',function(e){
+var rect=this.getBoundingClientRect();
+var x=((e.clientX-rect.left)/rect.width)*100;
+var y=((e.clientY-rect.top)/rect.height)*100;
+inner.style.setProperty('--glow-x',x+'%');
+inner.style.setProperty('--glow-y',y+'%');
+});
+card.addEventListener('pointerleave',function(){
+inner.style.setProperty('--glow-x','50%');
+inner.style.setProperty('--glow-y','50%');
+});
+})(track.children[i]);
+}
+}
+
+// === GRID VIEW ===
+function buildGrid(){
+gridInner.innerHTML='';
+for(var i=0;i<TOTAL;i++){
+var div=document.createElement('div');
+div.className='grid-card';
+div.dataset.index=i;
+var ri=getRealIssueNum(i);
+div.innerHTML='<img src="'+getCoverPath(i)+'" alt="Sayı '+ri+'" loading="lazy" draggable="false"><div class="grid-card-overlay"></div><div class="grid-card-num">'+pad(ri)+'</div>';
+ div.addEventListener('click',function(){
+ var idx=parseInt(this.dataset.index);
+ openPdfReader(getPdfPath(idx));
+ });
+gridInner.appendChild(div);
+}
+// Stagger reveal
+var cards=gridInner.querySelectorAll('.grid-card');
+for(var j=0;j<cards.length;j++){
+(function(el,delay){
+setTimeout(function(){el.classList.add('visible');},delay);
+})(cards[j],j*8);
+}
+}
+
+function toggleGrid(){
+gridOpen=!gridOpen;
+var cardStage=document.getElementById('card-stage');
+var bottomBar=document.getElementById('bottom-bar');
+if(gridOpen){
+gridView.classList.add('open');
+gridClose.classList.add('show');
+gridToggle.textContent='Karusel';
+gridToggle.classList.add('active');
+cardStage.classList.add('grid-hidden');
+bottomBar.classList.add('hide');
+if(gridInner.children.length===0)buildGrid();
+else{
+var cards=gridInner.querySelectorAll('.grid-card');
+for(var i=0;i<cards.length;i++){
+setTimeout(function(el){el.classList.add('visible');},i*5, cards[i]);
+}
+}
+}else{
+gridView.classList.remove('open');
+gridClose.classList.remove('show');
+gridToggle.textContent='Grid';
+gridToggle.classList.remove('active');
+cardStage.classList.remove('grid-hidden');
+bottomBar.classList.remove('hide');
+// Reset carousel state
+animating=false;
+for(var ci=0;ci<track.children.length;ci++){
+gsap.killTweensOf(track.children[ci]);
+track.children[ci].style.transform='';
+}
+gsap.killTweensOf(track);
+track.style.transform='';
+gsap.killTweensOf([issueNumber,issueDesc]);
+issueNumber.style.transform='';
+issueNumber.style.opacity='1';
+issueDesc.style.transform='';
+issueDesc.style.opacity='1';
+updateActiveCard();
+centerTrack(true);
+if(track.children[current]){
+gsap.set(track.children[current],{scale:1});
+gsap.to(track.children[current],{scale:1.35,duration:0.5,ease:'back.out(1.5)'});
+}
+}
+}
+
+// === SHARE ===
+function updateShareButtons(){
+var ri=getRealIssueNum(current);
+var url=window.location.origin+window.location.pathname+'#sayi-'+pad(ri);
+var text='Küpeşte '+ri+'. sayı — '+getTheme(current);
+document.getElementById('share-whatsapp').onclick=function(){window.open('https://wa.me/?text='+encodeURIComponent(text+' '+url),'_blank');};
+document.getElementById('share-copy').onclick=function(){
+navigator.clipboard.writeText(url).then(function(){
+var btn=document.getElementById('share-copy');
+btn.style.color='var(--accent)';
+setTimeout(function(){btn.style.color='';},1500);
+});
+};
+}
+
+// === HASH ROUTING ===
+function updateHash(){
+var ri=getRealIssueNum(current);
+var hash='#sayi-'+pad(ri);
+if(history.replaceState)history.replaceState(null,'',hash);
+}
+
+function handleHash(){
+if(!location.hash)return;
+var m=location.hash.match(/sayi-(\d+)/i);
+if(!m)return;
+var targetNum=parseInt(m[1]);
+for(var i=0;i<TOTAL;i++){
+if(getRealIssueNum(i)===targetNum){
+if(i!==current)goTo(i);
+return;
+}
+}
+}
+
+// === MODALS ===
+function openModal(modal){modal.classList.add('open');}
+function closeModal(modal){modal.classList.remove('open');}
+function openPdfReader(pdfPath){
+var viewerUrl='pdfjs/web/viewer.html?file='+encodeURIComponent('../../'+pdfPath);
+pdfFrame.src=viewerUrl;
+openModal(pdfModal);
+}
+
+function setupModals(){
+document.getElementById('btn-hakkimizda').addEventListener('click',function(){openModal(hakModal);});
+document.getElementById('hakkimizda-close').addEventListener('click',function(){closeModal(hakModal);});
+hakModal.addEventListener('click',function(e){if(e.target===this)closeModal(this);});
+
+// PDF modal
+issuePdfBtn.addEventListener('click',function(e){
+e.preventDefault();
+openPdfReader(getPdfPath(current));
+});
+pdfModalClose.addEventListener('click',function(){closeModal(pdfModal);pdfFrame.src='';});
+pdfModal.addEventListener('click',function(e){if(e.target===this){closeModal(this);pdfFrame.src='';}});
+
+// Escape key closes modals
+document.addEventListener('keydown',function(e){
+if(e.key==='Escape'){
+if(pdfModal.classList.contains('open')){closeModal(pdfModal);pdfFrame.src='';}
+if(hakModal.classList.contains('open')){closeModal(hakModal);}
+}
+});
+}
+
+// === JUMP INPUT ===
+function setupJump(){
+jumpInput.addEventListener('keydown',function(e){
+if(e.key==='Enter'){
+var val=parseInt(this.value);
+if(val>=1&&val<=TOTAL){
+for(var i=0;i<TOTAL;i++){
+if(getRealIssueNum(i)===val){
+goTo(i);
+this.value='';
+this.blur();
+return;
+}
+}
+}
+this.value='';
+}
+});
+}
+
+// === GRID TOGGLE BUTTON ===
+function setupGridToggle(){
+gridToggle.addEventListener('click',toggleGrid);
+gridClose.addEventListener('click',toggleGrid);
+}
+
+// === INIT ===
+buildCards();
+updateInfo();
+updateMeta();
+updateActiveCard();
+applyBgColor(current);
+setupKeyboard();
+setupButtons();
+setupProgress();
+setupWheel();
+setupDrag();
+setupResize();
+preloadCovers();
+setupHoverEffects();
+setupCardGlow();
+setupModals();
+setupJump();
+setupGridToggle();
+updateShareButtons();
+updateHash();
+
+// Handle hash on load
+handleHash();
+
+// Soft entrance
+gsap.fromTo('#logo-wrap,#insta',{y:-20,opacity:0},{y:0,opacity:1,duration:0.6,stagger:0.1,ease:'power2.out',delay:0.1});
+gsap.fromTo('#header-nav',{opacity:0},{opacity:1,duration:0.4,delay:0.15});
+requestAnimationFrame(function(){centerTrack(true);});
+gsap.fromTo('.card',{opacity:0},{opacity:function(i){return i===current?1:0.6},duration:0.55,stagger:0.05,ease:'power2.out',delay:0.3,clearProps:'opacity,filter'});
+gsap.fromTo('#issue-info,#bottom-bar',{y:15,opacity:0},{y:0,opacity:1,duration:0.5,stagger:0.08,ease:'power2.out',delay:0.6});
+
+// Show share buttons after entrance
+setTimeout(function(){shareButtons.classList.add('show');},1200);
+
+// Initial active card scale
+var initCards=track.children;
+if(initCards[current]){
+gsap.set(initCards[current],{scale:1.1});
+gsap.to(initCards[current],{scale:1.35,duration:0.7,ease:'back.out(1.5)',delay:0.3});
+}
+
+// Listen for hash changes
+window.addEventListener('hashchange',handleHash);
+
+})();
+</script>
+</body>
+</html>
